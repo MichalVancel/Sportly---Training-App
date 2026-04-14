@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Sportly.Registration;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,7 +19,16 @@ namespace Sportly
     {
         public MainWindow()
         {
+            
             InitializeComponent();
+        }
+
+        private void CreAccButt_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrationWin registrationWin = new RegistrationWin();
+            registrationWin.WindowState = WindowState.Maximized;
+            registrationWin.Show();
+            this.Close();
         }
     }
 }
