@@ -53,7 +53,7 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Button x:Name="CreAccButt" Content="Create Account" Height="34" Width="235" FontSize="20" FontFamily="Artifakt Element Black" Background="Transparent" Margin="100,0" Click="CreAccButt_Click" />
-            <Button x:Name="LoginButton" Content="Login" Height="34" Width="235" FontSize="20" FontFamily="Artifakt Element Black" Background="Transparent" Margin="100,0"/>
+            <Button x:Name="LoginButton" Content="Login" Height="34" Width="235" FontSize="20" FontFamily="Artifakt Element Black" Background="Transparent" Margin="100,0" Click="LoginButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -21,14 +21,20 @@ namespace Sportly
         {
             
             InitializeComponent();
+           
         }
 
         private void CreAccButt_Click(object sender, RoutedEventArgs e)
         {
             RegistrationWin registrationWin = new RegistrationWin();
-            registrationWin.WindowState = WindowState.Maximized;
+            
             registrationWin.Show();
-            this.Close();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            
         }
     }
 }
