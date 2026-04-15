@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Text.Json;
 namespace Sportly
 {
     /// <summary>
@@ -27,13 +27,14 @@ namespace Sportly
         private void CreAccButt_Click(object sender, RoutedEventArgs e)
         {
             RegistrationWin registrationWin = new RegistrationWin();
-            
+            registrationWin.WindowState = WindowState.Maximized;
             registrationWin.Show();
+            this.Close();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-
+           
             
         }
     }
