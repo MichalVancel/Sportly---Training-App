@@ -58,7 +58,7 @@ namespace Sportly.Registration
             LoginWindow.Show();
             this.Close();
 
-            
+            MessageBox.Show("Registrácia úspešná");
         }
 
 
