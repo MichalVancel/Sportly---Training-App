@@ -25,7 +25,6 @@ namespace Sportly.Registration
             GenderSelect.Items.Add(new ComboBoxItem() { Content = "Muž" });
             GenderSelect.Items.Add(new ComboBoxItem() { Content = "Žena" });
 
-
         }
 
 
@@ -51,11 +50,15 @@ namespace Sportly.Registration
 
             };
             string json = JsonSerializer.Serialize(getData);
+
+            
             File.WriteAllText("userData.json", json);
+            
+            
         }
         
 
-        internal class AssignValue()
+        internal class AssignValue
         {
             public string firstName {get;set;}
             public string lastName {get;set;}
