@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using static Sportly.Registration.RegistrationWin;
 
 namespace Sportly
@@ -43,7 +44,7 @@ namespace Sportly
             {
                 string Userdata = File.ReadAllText(filePath);
                 AssignValue savedUser = JsonSerializer.Deserialize<AssignValue>(Userdata);
-                if (Email.Text == savedUser.email && PassWord.Password == savedUser.password)
+                if (Email.Text == savedUser.email && BCrypt.Net.BCrypt.Verify(PassWord.Password, savedUser.password))
                 {
                     TeamCreateWin teamCreateWin = new TeamCreateWin();
                     teamCreateWin.WindowState = WindowState.Maximized;

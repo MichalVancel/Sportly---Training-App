@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.Json;
 using System.IO;
-
+using BCrypt;
 namespace Sportly.Registration
 {
     /// <summary>
@@ -47,7 +47,7 @@ namespace Sportly.Registration
                 email = EmailAdd.Text,
                 PhoneNumber = PhoneNum.Text,
                 Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
-                password = PassWord.Password,
+                password = BCrypt.Net.BCrypt.HashPassword(PassWord.Password, workFactor: 10)
 
 
             };
