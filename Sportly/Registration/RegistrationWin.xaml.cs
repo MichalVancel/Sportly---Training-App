@@ -10,7 +10,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Text.Json;
+using System.IO;
 namespace Sportly.Registration
 {
     /// <summary>
@@ -27,7 +28,7 @@ namespace Sportly.Registration
 
         }
 
-        
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -36,11 +37,42 @@ namespace Sportly.Registration
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-        }
+            var getData = new AssignValue
+            {
+                firstName = FirstName.Text,
+                lastName = LastName.Text,
+                birthDate = BirthDate.SelectedDate,
+                Address = Adress.Text,
+                email = EmailAdd.Text,
+                PhoneNumber = PhoneNum.Text,
+                Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
+                password = PassWord.Password,
 
+
+            };
+            string json = JsonSerializer.Serialize(getData);
+            File.WriteAllText("userData.json", json);
+        }
+        
+
+        internal class AssignValue()
+        {
+            public string firstName {get;set;}
+            public string lastName {get;set;}
+            public DateTime? birthDate {get;set;}
+            public string Address {get;set;}
+            public string email { get;set;}
+            public string PhoneNumber {get;set;}
+            public string Gender {get;set;}
+            public string password {get;set;}
+        }
         private void GenderSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
     }
-}
+
+}   
+    
+    
+
