@@ -1,0 +1,24 @@
+﻿<Window x:Class="Sportly.AfterLogin.TeamCreateWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sportly.AfterLogin"
+        mc:Ignorable="d"
+        Title="TeamCreateWin" Height="450" Width="800"
+        Background="#EFEBE9">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="VYTVORIŤ TÍM" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontFamily="Artifakt Element Heavy"/>
+        <Label Content="Názov tímu" HorizontalAlignment="Left" Margin="222,50,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="25" FontFamily="Artifakt Element Heavy"/>
+        <TextBox x:Name="TeamName" Width="240" Height="36" FontSize="18" VerticalAlignment="Top" Margin="400,54,160,0" Grid.Row="1"/>
+        <Label Content="Šport" HorizontalAlignment="Left" Margin="222,177,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="25" FontFamily="Artifakt Element Heavy"/>
+        <ComboBox x:Name="Sport" Width="240" Height="36" FontSize="18" VerticalAlignment="Top" Margin="400,182,160,0" Grid.Row="1" SelectionChanged="Sport_SelectionChanged"/>
+        <Button Content="Vytvoriť tím" HorizontalAlignment="Center" Margin="0,274,0,0" Grid.Row="1" VerticalAlignment="Top" Height="41" Width="206" FontSize="20" FontFamily="Artifakt Element Heavy" Click="Button_Click" Background="Transparent"/>
+        <Label Content="Mesto" HorizontalAlignment="Left" Margin="222,115,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="25" FontFamily="Artifakt Element Heavy"/>
+        <TextBox x:Name="CityName" Width="240" Height="36" FontSize="18" VerticalAlignment="Top" Margin="400,120,160,0" Grid.Row="1"/>
+    </Grid>
+</Window>
