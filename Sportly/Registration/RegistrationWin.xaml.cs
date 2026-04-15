@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Text.Json;
+using System.IO;
 namespace Sportly.Registration
 {
     /// <summary>
@@ -78,4 +79,8 @@ namespace Sportly.Registration
 
         }
     }
-}
+
+}   
+    
+    
+

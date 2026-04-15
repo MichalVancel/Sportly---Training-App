@@ -25,6 +25,7 @@ namespace Sportly
         {
             
             InitializeComponent();
+           
         }
 
         private void CreAccButt_Click(object sender, RoutedEventArgs e)

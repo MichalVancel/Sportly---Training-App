@@ -41,7 +41,7 @@
             </Grid>
 
             <Grid Margin="0,10">
-                <Label Content="PASSWORD" 
+                <Label Content="HESLO" 
                    HorizontalAlignment="Left" 
                    FontFamily="Artifakt Element Heavy" 
                    FontSize="25"/>
