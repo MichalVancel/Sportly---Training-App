@@ -52,6 +52,8 @@ namespace Sportly.Registration
             };
             string json = JsonSerializer.Serialize(getData);
             File.WriteAllText("userData.json", json);
+
+            MessageBox.Show("Registrácia úspešná");
         }
         
 
