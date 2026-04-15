@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,21 @@ namespace Sportly.Registration
         public RegistrationWin()
         {
             InitializeComponent();
+            genderSelect.Items.Add(new ComboBoxItem() { Content = "Muz" });
+            genderSelect.Items.Add(new ComboBoxItem() { Content = "Zena" });
+
+
+        }
+
+        
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
