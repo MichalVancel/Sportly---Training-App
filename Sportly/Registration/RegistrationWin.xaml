@@ -5,34 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sportly.Registration"
         mc:Ignorable="d"
-        Title="RegistrationWin" Height="450" Width="800">
+        Title="RegistrationWin" Height="450" Width="1000"
+         Background="#EFEBE9">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="105,30" TextWrapping="Wrap" Text="Meno" VerticalAlignment="Top" Height="40" Width="130" LineHeight="9" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="fistName" HorizontalAlignment="Left" Margin="462,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" FontSize="18" TextChanged="TextBox_TextChanged" BorderBrush="#FF727377"/>
-        <TextBlock HorizontalAlignment="Left" Margin="105,70" TextWrapping="Wrap" Text="Priezvisko" VerticalAlignment="Top" Height="40" Width="100" LineHeight="9" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.48,1.506"/>
-        <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="462,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" FontSize="18" TextChanged="TextBox_TextChanged" BorderBrush="#FF727377"/>
-        <TextBlock HorizontalAlignment="Left" Margin="105,110" TextWrapping="Wrap" Text="Dátum narodenia" VerticalAlignment="Top" Height="40" Width="200" LineHeight="9" FontSize="20" FontWeight="Bold"/>
-        <DatePicker HorizontalAlignment="Left" Margin="462,110,0,0" VerticalAlignment="Top" Width="120" Height="20">
-            <DatePicker.BorderBrush>
-                <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
-                    <GradientStop Color="#FFA3AEB9"/>
-                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
-                    <GradientStop Color="#FF718597" Offset="0.375"/>
-                    <GradientStop Color="#FF727377" Offset="1"/>
-                </LinearGradientBrush>
-            </DatePicker.BorderBrush>
-        </DatePicker>
-        <TextBlock HorizontalAlignment="Left" Margin="105,150" TextWrapping="Wrap" Text="Adresa" VerticalAlignment="Top" Height="40" Width="100" LineHeight="9" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="address" HorizontalAlignment="Left" Margin="462,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" FontSize="18" TextChanged="TextBox_TextChanged" BorderBrush="#FF727377"/>
-        <TextBlock HorizontalAlignment="Left" Margin="105,190,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Height="40" Width="100" LineHeight="9" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="email" HorizontalAlignment="Left" Margin="462,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" FontSize="18" TextChanged="TextBox_TextChanged" BorderBrush="#FF727377"/>
-        <TextBlock HorizontalAlignment="Left" Margin="105,230,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top" Height="40" Width="100" LineHeight="9" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="phoneNumber" HorizontalAlignment="Left" Margin="462,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" FontSize="18" TextChanged="TextBox_TextChanged" BorderBrush="#FF727377"/>
-        <TextBlock HorizontalAlignment="Left" Margin="105,270,0,0" TextWrapping="Wrap" Text="Pohlavie" VerticalAlignment="Top" Height="40" Width="100" LineHeight="9" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.587,1.657"/>
-        <ComboBox x:Name="genderSelect" HorizontalAlignment="Left" Margin="462,279,0,0" VerticalAlignment="Top" Width="120"                                                                                                             />
-        <Button Content="Vytvorit konto" HorizontalAlignment="Left" Margin="462,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.231,-0.912" Width="120" Height="25" Click="Button_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="105,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="100" LineHeight="9" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.587,1.657"><Run Text="Heslo"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="phoneNumber_Copy" HorizontalAlignment="Left" Margin="462,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" FontSize="18" TextChanged="TextBox_TextChanged" BorderBrush="#FF727377"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Label Content="REGISTRATION" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="40" FontFamily="Artifakt Element Heavy"/>
+
+        
+        <Grid Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <StackPanel Margin="0,0,50,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Meno" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="FirstName" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Priezvisko" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="LastName" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Dátum nar." Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <DatePicker Width="240" Height="44" FontSize="18" VerticalAlignment="Center" x:Name="BirthDate"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Adresa" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="Adress" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="E-mail" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="EmailAdd" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Telefon" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="PhoneNum" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Pohlavie" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <ComboBox x:Name="GenderSelect" Width="240" Height="39" FontSize="18" VerticalAlignment="Center" SelectionChanged="GenderSelect_SelectionChanged"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Heslo" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <PasswordBox x:Name="PassWord" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <Button Content="Vytvoriť konto" 
+                Width="200" Height="45" 
+                FontSize="18" FontWeight="Bold"
+                Margin="0,40,0,0" 
+                HorizontalAlignment="Center"
+                Click="Button_Click"/>
+
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </Window>
