@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.Json;
 using System.IO;
+
 namespace Sportly.Registration
 {
     /// <summary>
