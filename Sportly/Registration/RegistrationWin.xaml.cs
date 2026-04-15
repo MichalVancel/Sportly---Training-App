@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.IO;
 using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -53,20 +54,25 @@ namespace Sportly.Registration
             string json = JsonSerializer.Serialize(getData);
             File.WriteAllText("userData.json", json);
 
-            MessageBox.Show("Registrácia úspešná");
+            MainWindow LoginWindow = new MainWindow();
+            LoginWindow.WindowState = WindowState.Maximized;
+            LoginWindow.Show();
+            this.Close();
+
+            
         }
-        
+
 
         internal class AssignValue()
         {
-            public string firstName {get;set;}
-            public string lastName {get;set;}
-            public DateTime? birthDate {get;set;}
-            public string Address {get;set;}
-            public string email { get;set;}
-            public string PhoneNumber {get;set;}
-            public string Gender {get;set;}
-            public string password {get;set;}
+            public string firstName { get; set; }
+            public string lastName { get; set; }
+            public DateTime? birthDate { get; set; }
+            public string Address { get; set; }
+            public string email { get; set; }
+            public string PhoneNumber { get; set; }
+            public string Gender { get; set; }
+            public string password { get; set; }
         }
         private void GenderSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
