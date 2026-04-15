@@ -21,8 +21,10 @@ namespace Sportly.Registration
         public RegistrationWin()
         {
             InitializeComponent();
-            genderSelect.Items.Add(new ComboBoxItem() { Content = "Muz" });
-            genderSelect.Items.Add(new ComboBoxItem() { Content = "Zena" });
+            GenderSelect.Items.Add(new ComboBoxItem() { Content = "Muž" });
+            GenderSelect.Items.Add(new ComboBoxItem() { Content = "Žena" });
+
+
         }
 
 
@@ -47,19 +49,11 @@ namespace Sportly.Registration
 
 
         }
-        private class AssignValue()
+
+        private void GenderSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            public string firstName { get; set; }
-            public string lastName { get; set; } 
-            public int birthDate { get; set;  }
-            public string address { get; set; }
-            public string email { get; set; }
-            public string phoneNumber { get; set; }
-            public string gender { get; set; }
-            public string password { get; set; }
 
         }
-      
     }
 
 }   
