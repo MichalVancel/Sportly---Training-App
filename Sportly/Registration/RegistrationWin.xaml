@@ -5,8 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sportly.Registration"
         mc:Ignorable="d"
-        Title="RegistrationWin" Height="450" Width="800">
+        Title="RegistrationWin" Height="450" Width="1000"
+         Background="#EFEBE9">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Label Content="REGISTRATION" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="40" FontFamily="Artifakt Element Heavy"/>
+
+
+        <Grid Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <StackPanel Margin="0,0,50,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Meno" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="FirstName" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Priezvisko" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="LastName" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Dátum nar." Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <DatePicker Width="240" Height="44" FontSize="18" VerticalAlignment="Center" x:Name="BirthDate"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Adresa" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="Adress" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="E-mail" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="EmailAdd" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Telefon" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <TextBox x:Name="PhoneNum" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Pohlavie" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <ComboBox x:Name="GenderSelect" Width="240" Height="39" FontSize="18" VerticalAlignment="Center" SelectionChanged="GenderSelect_SelectionChanged"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <Label Content="Heslo" Width="150" FontSize="25" FontWeight="Bold" FontFamily="Artifakt Element Heavy"/>
+                            <PasswordBox x:Name="PassWord" Width="240" Height="36" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <Button Content="Vytvoriť konto" 
+                Width="200" Height="45" 
+                FontSize="18" FontWeight="Bold"
+                Margin="0,40,0,0" 
+                HorizontalAlignment="Center"
+                Click="Button_Click"/>
+
+            </StackPanel>
+        </Grid>
+
     </Grid>
 </Window>
