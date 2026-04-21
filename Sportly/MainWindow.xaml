@@ -5,58 +5,104 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sportly"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800"
-        Background="#EFEBE9">
+        Title="LoginWindow" Height="650" Width="1000"
+        Background="#1C1C1C">
 
-    <Grid>
+    <Grid Background="#121212">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" MinWidth="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
         <Label Content="LOGIN" 
-           Grid.Row="0"
+           Grid.Row="0" Grid.Column="1"
            HorizontalAlignment="Center" 
-           VerticalAlignment="Center" 
+           Margin="0,50,0,20"
            FontFamily="Artifakt Element Heavy" 
-           FontSize="40"/>
+           FontSize="50"
+           Foreground="#B22222"/>
 
-        <StackPanel Grid.Row="1" 
-                VerticalAlignment="Center" 
-                HorizontalAlignment="Center" 
-                Width="600">
-            <Grid Margin="0,10">
-                <Label Content="EMAIL" 
-                   HorizontalAlignment="Left" 
-                   FontFamily="Artifakt Element Heavy" 
-                   FontSize="25"/>
-                <TextBox 
-                    x:Name="Email"
-                    HorizontalAlignment="Right" 
-                     Width="300" 
-                     Height="35" 
-                     VerticalAlignment="Center"
-                     FontSize="25"/>
-            </Grid>
+        <Border Grid.Row="1" Grid.Column="1"
+            VerticalAlignment="Center" 
+            Background="#1E1E1E" 
+            CornerRadius="20" 
+            Padding="30"
+            BorderBrush="#333333"
+            BorderThickness="1">
 
-            <Grid Margin="0,10">
-                <Label Content="HESLO" 
-                   HorizontalAlignment="Left" 
-                   FontFamily="Artifakt Element Heavy" 
-                   FontSize="25"/>
-                <PasswordBox HorizontalAlignment="Right" 
+            <StackPanel>
+                <Grid Margin="0,15">
+                    <Label Content="EMAIL" 
+                       HorizontalAlignment="Left" 
+                       FontFamily="Artifakt Element Heavy" 
+                       FontSize="22"
+                       Foreground="White"/>
+                    <TextBox x:Name="Email"
+                         HorizontalAlignment="Right" 
                          Width="300" 
-                         Height="35" 
-                         VerticalAlignment="Center"
-                         FontSize="25"
-                         x:Name="PassWord"/>
-            </Grid>
-        </StackPanel>
+                         Height="40" 
+                         VerticalContentAlignment="Center"
+                         FontSize="20"
+                         Background="#2D2D2D"
+                         Foreground="White"/>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Button x:Name="CreAccButt" Content="Create Account" Height="34" Width="235" FontSize="20" FontFamily="Artifakt Element Black" Background="Transparent" Margin="100,0" Click="CreAccButt_Click" />
-            <Button x:Name="LoginButton" Content="Login" Height="34" Width="235" FontSize="20" FontFamily="Artifakt Element Black" Background="Transparent" Margin="100,0" Click="LoginButton_Click"/>
+                </Grid>
+
+                <Grid Margin="0,15">
+                    <Label Content="HESLO" 
+                       HorizontalAlignment="Left" 
+                       FontFamily="Artifakt Element Heavy" 
+                       FontSize="22"
+                       Foreground="White"/>
+                    <PasswordBox x:Name="PassWord"
+                             HorizontalAlignment="Right" 
+                             Width="300" 
+                             Height="40" 
+                             VerticalContentAlignment="Center"
+                             FontSize="20"
+                             Background="#2D2D2D"
+                             Foreground="White"/>
+
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center" 
+                Margin="0,30,0,0">
+
+            <Border CornerRadius="10" Background="#B22222" Margin="10">
+                <Button x:Name="CreAccButt" 
+                    Content="Create Account" 
+                    Height="55" Width="200" 
+                    FontSize="18" 
+                    FontFamily="Artifakt Element Black" 
+                    Background="Transparent" 
+                    BorderBrush="Transparent"
+                    Foreground="White"
+                    Click="CreAccButt_Click" />
+            </Border>
+
+            <Border CornerRadius="10" Background="#B22222" Margin="10">
+                <Button x:Name="LoginButton" 
+                    Content="Login" 
+                    Height="55" Width="200" 
+                    FontSize="18" 
+                    FontFamily="Artifakt Element Black" 
+                    Background="Transparent" 
+                    BorderBrush="Transparent"
+                    Foreground="White"
+                    Click="LoginButton_Click"/>
+            </Border>
         </StackPanel>
     </Grid>
 </Window>
