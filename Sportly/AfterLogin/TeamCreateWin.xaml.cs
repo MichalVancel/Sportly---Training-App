@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sportly.Dash;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -43,6 +44,10 @@ namespace Sportly.AfterLogin
 
             MessageBox.Show("Tím bol vytvorený");
 
+            DashBoard DashBoardWin = new DashBoard();
+            DashBoardWin.WindowState = WindowState.Maximized;
+            DashBoardWin.Show();
+            this.Close();
 
         }
 
