@@ -26,10 +26,7 @@ namespace Sportly.AfterLogin
 
         private void Sport_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Sport.Items.Add(new ComboBoxItem() { Content = "Futbal" });
-            Sport.Items.Add(new ComboBoxItem() { Content = "Florbal" });
-            Sport.Items.Add(new ComboBoxItem() { Content = "Basketbal" });
-            Sport.Items.Add(new ComboBoxItem() { Content = "Hádzaná" });
+          
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -45,6 +42,8 @@ namespace Sportly.AfterLogin
             File.WriteAllText("teamData.json", json);
 
             MessageBox.Show("Tím bol vytvorený");
+
+
         }
 
         internal class AboutTeam()
@@ -53,6 +52,15 @@ namespace Sportly.AfterLogin
             public string Sport { get; set; }
             public string City { get; set; }
             
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow LoginWindow = new MainWindow();
+            LoginWindow.WindowState = WindowState.Maximized;
+            LoginWindow.Show();
+            this.Close();
+
         }
     }
 }
