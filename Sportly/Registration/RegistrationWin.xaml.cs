@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.Json;
 using System.IO;
+using BCrypt;
 namespace Sportly.Registration
 {
     /// <summary>
@@ -24,7 +25,6 @@ namespace Sportly.Registration
         {
             InitializeComponent();
            
-
 
         }
 
@@ -46,11 +46,15 @@ namespace Sportly.Registration
                 email = EmailAdd.Text,
                 PhoneNumber = PhoneNum.Text,
                 Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
-                password = PassWord.Password,
+                password = BCrypt.Net.BCrypt.EnhancedHashPassword(PassWord.Password)
 
 
             };
+            
+            
             string json = JsonSerializer.Serialize(getData);
+
+            
             File.WriteAllText("userData.json", json);
 
             MainWindow LoginWindow = new MainWindow();
@@ -64,7 +68,7 @@ namespace Sportly.Registration
         }
 
 
-        internal class AssignValue()
+        internal class AssignValue
         {
             public string firstName { get; set; }
             public string lastName { get; set; }
