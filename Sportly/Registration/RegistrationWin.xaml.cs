@@ -47,10 +47,12 @@ namespace Sportly.Registration
                 email = EmailAdd.Text,
                 PhoneNumber = PhoneNum.Text,
                 Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
-                password = BCrypt.Net.BCrypt.HashPassword(PassWord.Password, workFactor: 10)
+                password = BCrypt.Net.BCrypt.EnhancedHashPassword(PassWord.Password)
 
 
             };
+            
+            
             string json = JsonSerializer.Serialize(getData);
 
             

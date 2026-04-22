@@ -28,23 +28,38 @@ namespace Sportly
            
         }
 
+            string filePathUserData = "userData.json";
         private void CreAccButt_Click(object sender, RoutedEventArgs e)
         {
-            RegistrationWin registrationWin = new RegistrationWin();
-            registrationWin.WindowState = WindowState.Maximized;
-            registrationWin.Show();
-            this.Close();
-        }
+           
+                string DoesUserExist = File.ReadAllText(filePathUserData);
+               
+
+
+                if (DoesUserExist != "")
+                {
+                    MessageBox.Show("Dosiahnuty maximalny pocet registrovanych pouzivatelov");
+                }
+                else
+                {
+                    RegistrationWin registrationWin = new RegistrationWin();
+                    registrationWin.WindowState = WindowState.Maximized;
+                    registrationWin.Show();
+                    this.Close();
+
+                }
+         }
+        
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            string filePath = "userData.json";
 
-            if (File.Exists(filePath))
+            if (File.Exists(filePathUserData))
             {
-                string Userdata = File.ReadAllText(filePath);
+                string Userdata = File.ReadAllText(filePathUserData);
                 AssignValue savedUser = JsonSerializer.Deserialize<AssignValue>(Userdata);
-                if (Email.Text == savedUser.email && BCrypt.Net.BCrypt.Verify(PassWord.Password, savedUser.password))
+                bool IsPassSame = BCrypt.Net.BCrypt.EnhancedVerify(PassWord.Password, savedUser.password);
+                if (Email.Text == savedUser.email && IsPassSame)
                 {
                     TeamCreateWin teamCreateWin = new TeamCreateWin();
                     teamCreateWin.WindowState = WindowState.Maximized;
