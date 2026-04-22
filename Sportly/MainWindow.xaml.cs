@@ -86,5 +86,10 @@ namespace Sportly
 
            
         }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
