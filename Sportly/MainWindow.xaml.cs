@@ -31,11 +31,12 @@ namespace Sportly
             string filePathUserData = "userData.json";
         private void CreAccButt_Click(object sender, RoutedEventArgs e)
         {
-           
+            
+            if (File.Exists(filePathUserData))
+            {
                 string DoesUserExist = File.ReadAllText(filePathUserData);
-               
 
-
+                
                 if (DoesUserExist != "")
                 {
                     MessageBox.Show("Dosiahnuty maximalny pocet registrovanych pouzivatelov");
@@ -46,9 +47,17 @@ namespace Sportly
                     registrationWin.WindowState = WindowState.Maximized;
                     registrationWin.Show();
                     this.Close();
-
                 }
-         }
+            }
+            else
+            {
+                File.WriteAllText(filePathUserData, "", Encoding.UTF8);
+                RegistrationWin registrationWin = new RegistrationWin();
+                registrationWin.WindowState = WindowState.Maximized;
+                registrationWin.Show();
+                this.Close();
+            }
+        }
         
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
