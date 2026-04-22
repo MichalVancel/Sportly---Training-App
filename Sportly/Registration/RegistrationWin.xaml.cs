@@ -57,6 +57,8 @@ namespace Sportly.Registration
             
             File.WriteAllText("userData.json", json);
 
+            MessageBox.Show("Registrácia úspešná");
+
             MainWindow LoginWindow = new MainWindow();
             MessageBox.Show("Registrácia úspešná");
             LoginWindow.WindowState = WindowState.Maximized;

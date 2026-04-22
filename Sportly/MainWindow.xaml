@@ -93,15 +93,27 @@
             </Border>
 
             <Border CornerRadius="10" Background="#B22222" Margin="10">
-                <Button x:Name="LoginButton" 
-                    Content="Login" 
+                <Button x:Name="ResetButton" 
+                    Content="Zmena Hesla" 
                     Height="55" Width="200" 
                     FontSize="18" 
                     FontFamily="Artifakt Element Black" 
                     Background="Transparent" 
                     BorderBrush="Transparent"
                     Foreground="White"
-                    Click="LoginButton_Click"/>
+                    Click="ResetButton_Click"/>
+            </Border>
+
+            <Border CornerRadius="10" Background="#B22222" Margin="10">
+                <Button x:Name="LoginButton" 
+                       Content="Login" 
+                       Height="55" Width="200" 
+                       FontSize="18" 
+                       FontFamily="Artifakt Element Black" 
+                       Background="Transparent" 
+                       BorderBrush="Transparent"
+                       Foreground="White"
+                       Click="LoginButton_Click"/>
             </Border>
         </StackPanel>
     </Grid>
