@@ -58,11 +58,11 @@ namespace Sportly.Registration
             File.WriteAllText("userData.json", json);
 
             MainWindow LoginWindow = new MainWindow();
+            MessageBox.Show("Registrácia úspešná");
             LoginWindow.WindowState = WindowState.Maximized;
             LoginWindow.Show();
             this.Close();
 
-            MessageBox.Show("Registrácia úspešná");
 
             
         }
