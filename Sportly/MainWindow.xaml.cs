@@ -89,6 +89,10 @@ namespace Sportly
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
+           ResetPassword resetPassword = new ResetPassword();
+            resetPassword.WindowState = WindowState.Maximized;
+            resetPassword.Show();
+            this.Close( );
 
         }
     }
