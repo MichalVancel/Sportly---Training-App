@@ -24,8 +24,7 @@ namespace Sportly.Registration
         public RegistrationWin()
         {
             InitializeComponent();
-            GenderSelect.Items.Add(new ComboBoxItem() { Content = "Muž" });
-            GenderSelect.Items.Add(new ComboBoxItem() { Content = "Žena" });
+           
 
         }
 
@@ -63,6 +62,8 @@ namespace Sportly.Registration
             LoginWindow.Show();
             this.Close();
 
+            MessageBox.Show("Registrácia úspešná");
+
             
         }
 
@@ -81,6 +82,14 @@ namespace Sportly.Registration
         private void GenderSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow LoginWindow = new MainWindow();
+            LoginWindow.WindowState = WindowState.Maximized;
+            LoginWindow.Show();
+            this.Close();
         }
     }
 
