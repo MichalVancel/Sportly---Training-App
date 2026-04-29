@@ -1,4 +1,5 @@
 ﻿using Sportly.AfterLogin;
+using Sportly.Dash;
 using Sportly.Registration;
 using System.IO;
 using System.Text;
@@ -70,9 +71,13 @@ namespace Sportly
                 bool IsPassSame = BCrypt.Net.BCrypt.EnhancedVerify(PassWord.Password, savedUser.password);
                 if (Email.Text == savedUser.email && IsPassSame)
                 {
-                    TeamCreateWin teamCreateWin = new TeamCreateWin();
-                    teamCreateWin.WindowState = WindowState.Maximized;
-                    teamCreateWin.Show();
+                    //TeamCreateWin teamCreateWin = new TeamCreateWin();
+                    //teamCreateWin.WindowState = WindowState.Maximized;
+                    //teamCreateWin.Show();
+                   
+                    DashBoard dashBoard = new DashBoard();
+                    dashBoard.WindowState = WindowState.Maximized;
+                    dashBoard.Show();
                     this.Close();
                 }
                 else

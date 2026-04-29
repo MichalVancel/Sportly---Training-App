@@ -5,8 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sportly.Dash"
         mc:Ignorable="d"
-        Title="DashBoard" Height="450" Width="800">
+        Title="DashBoard" Height="800" Width="1000" Background="White">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1.2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" 
+        Background="#B22222" CornerRadius="25" 
+        Margin="20,20,10,20" VerticalAlignment="Top" Height="250">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label x:Name="NameLabel" Content="" FontSize="25" Foreground="White" FontFamily="Artifakt Element Heavy"/>
+                    <Label x:Name="SureNameLabel" Content="" FontSize="25" Foreground="White" FontFamily="Artifakt Element Heavy" Margin="5,0,0,0"/>
+                </StackPanel>
+
+                <Label x:Name="TeamNameLabel" Content="" FontSize="15" Foreground="White" HorizontalContentAlignment="Center"/>
+
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1" 
+        Background="#1E1E1E" BorderThickness="1" BorderBrush="#333333" 
+        CornerRadius="25" Margin="10,20,20,20" Padding="15">
+
+            <Grid>
+                <Border Background="#B22222" CornerRadius="12" Height="53" 
+                VerticalAlignment="Top" HorizontalAlignment="Right" 
+                Margin="0,5,5,0" Width="150">
+
+                    <Button x:Name="AddEventButton"  Content="Pridať Udalosť"  Background="Transparent" Foreground="White" FontFamily="Artifakt Element Heavy"  BorderBrush="Transparent"  Cursor="Hand" Click="AddEventButton_Click"/>
+                   
+                </Border>
+
+                <Border  BorderThickness="0,0,0,1" 
+                Height="1" VerticalAlignment="Top" Margin="0,65,0,0"/>
+
+                <ListBox Background="Transparent" BorderThickness="0" Foreground="White" 
+                 FontSize="20" FontFamily="Artifakt Element Heavy" 
+                 Margin="0,75,0,0">
+                </ListBox>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="30,0,30,10">
+            <Border Background="#B22222" CornerRadius="12" HorizontalAlignment="Left" Width="100" Height="55">
+                <Button Content="&#xE10F;" FontSize="35" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
+            </Border>
+
+            <Border Background="#B22222" CornerRadius="12" HorizontalAlignment="Center" Width="100" Height="55">
+                <Button Content="&#xE787;" FontSize="32" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
+            </Border>
+
+            <Border Background="#B22222" CornerRadius="12" HorizontalAlignment="Right" Width="100" Height="55">
+                <Button Content="&#xE77B;" FontSize="30" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
+            </Border>
+        </Grid>
+
     </Grid>
 </Window>
