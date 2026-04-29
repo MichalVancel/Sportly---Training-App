@@ -26,9 +26,8 @@
                     <Label x:Name="NameLabel" Content="" FontSize="25" Foreground="White" FontFamily="Artifakt Element Heavy"/>
                     <Label x:Name="SureNameLabel" Content="" FontSize="25" Foreground="White" FontFamily="Artifakt Element Heavy" Margin="5,0,0,0"/>
                 </StackPanel>
-
+                <Label x:Name="BirthDateLabel" Content="" FontSize="15" Foreground="White" HorizontalContentAlignment="Center"  FontFamily="Artifakt Element Heavy"/>
                 <Label x:Name="TeamNameLabel" Content="" FontSize="15" Foreground="White" HorizontalContentAlignment="Center"/>
-
             </StackPanel>
         </Border>
         <Border Grid.Row="0" Grid.Column="1" 

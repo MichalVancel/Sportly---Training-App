@@ -33,6 +33,9 @@ namespace Sportly.Dash
            Data userData = JsonSerializer.Deserialize<Data>(jsonString);
            NameLabel.Content = userData.firstName;
            SureNameLabel.Content = userData.lastName;
+           BirthDateLabel.Content = userData.birthDate;
+
+
 
 
            string jsonString2 = File.ReadAllText("teamData.json");
@@ -50,6 +53,8 @@ namespace Sportly.Dash
             public string firstName { get; set; }
             public string lastName { get; set; }
             public string TeamName { get; set; }
+
+            public string birthDate { get; set; }
         }
 
         private void AddEventButton_Click(object sender, RoutedEventArgs e)
