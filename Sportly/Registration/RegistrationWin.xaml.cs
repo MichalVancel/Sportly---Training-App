@@ -41,7 +41,7 @@ namespace Sportly.Registration
             {
                 firstName = FirstName.Text,
                 lastName = LastName.Text,
-                birthDate = BirthDate.SelectedDate,
+                birthDate = BirthDate.SelectedDate?.ToString("dd.MM.yyyy") ?? "",
                 Address = Adress.Text,
                 email = EmailAdd.Text,
                 PhoneNumber = PhoneNum.Text,
@@ -57,7 +57,7 @@ namespace Sportly.Registration
             
             File.WriteAllText("userData.json", json);
 
-            MessageBox.Show("Registrácia úspešná");
+           
 
             MainWindow LoginWindow = new MainWindow();
             MessageBox.Show("Registrácia úspešná");
@@ -89,7 +89,7 @@ namespace Sportly.Registration
         {
             public string firstName { get; set; }
             public string lastName { get; set; }
-            public DateTime? birthDate { get; set; }
+            public string birthDate { get; set; }
             public string Address { get; set; }
             public string email { get; set; }
             public string PhoneNumber { get; set; }
