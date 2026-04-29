@@ -67,7 +67,7 @@ namespace Sportly
             if (File.Exists(filePathUserData))
             {
                 string Userdata = File.ReadAllText(filePathUserData);
-                AssignValue savedUser = JsonSerializer.Deserialize<AssignValue>(Userdata);
+                ExistingUserData savedUser = JsonSerializer.Deserialize<ExistingUserData>(Userdata);
                 bool IsPassSame = BCrypt.Net.BCrypt.EnhancedVerify(PassWord.Password, savedUser.password);
                 if (Email.Text == savedUser.email && IsPassSame)
                 {
@@ -88,12 +88,15 @@ namespace Sportly
 
 
 
-
            
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
+           ResetPassword resetPassword = new ResetPassword();
+            resetPassword.WindowState = WindowState.Maximized;
+            resetPassword.Show();
+            this.Close( );
 
         }
     }
