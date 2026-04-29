@@ -28,7 +28,7 @@ namespace Sportly.Registration
 
         }
 
-
+       
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -37,7 +37,7 @@ namespace Sportly.Registration
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            var getData = new AssignValue
+            var getData = new ExistingUserData
             {
                 firstName = FirstName.Text,
                 lastName = LastName.Text,
@@ -47,7 +47,7 @@ namespace Sportly.Registration
                 PhoneNumber = PhoneNum.Text,
                 Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
                 password = BCrypt.Net.BCrypt.EnhancedHashPassword(PassWord.Password)
-
+                
 
             };
             
@@ -70,17 +70,6 @@ namespace Sportly.Registration
         }
 
 
-        internal class AssignValue
-        {
-            public string firstName { get; set; }
-            public string lastName { get; set; }
-            public DateTime? birthDate { get; set; }
-            public string Address { get; set; }
-            public string email { get; set; }
-            public string PhoneNumber { get; set; }
-            public string Gender { get; set; }
-            public string password { get; set; }
-        }
         private void GenderSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -95,6 +84,20 @@ namespace Sportly.Registration
         }
     }
 
+    
+        internal class ExistingUserData
+        {
+            public string firstName { get; set; }
+            public string lastName { get; set; }
+            public DateTime? birthDate { get; set; }
+            public string Address { get; set; }
+            public string email { get; set; }
+            public string PhoneNumber { get; set; }
+            public string Gender { get; set; }
+            public string password { get; set; }
+        }
+
+    
 }   
     
     
