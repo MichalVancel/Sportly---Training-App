@@ -41,7 +41,7 @@ namespace Sportly
             string json = File.ReadAllText(userFilePath);
             ExistingUserData userData = JsonSerializer.Deserialize<ExistingUserData>(json);
             string isEmailCorrect = emailTextBox.Text;
-            string birthDateForReset = birthDateResetPassword.SelectedDate?.ToString("dd.MM.yyyy") ?? "";
+            string birthDateForReset = birthDatePicker.SelectedDate?.ToString("dd.MM.yyyy") ?? "";
             string newPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(newPasswordBox.Password);
             
             if(isEmailCorrect == userData.email &&  birthDateForReset == userData.birthDate)

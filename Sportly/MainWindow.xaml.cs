@@ -75,12 +75,22 @@ namespace Sportly
 
                 if (Email.Text == savedUser.email && IsPassSame)
                 {
-                    //TeamCreateWin teamCreateWin = new TeamCreateWin();
-                    //teamCreateWin.WindowState = WindowState.Maximized;
-                    //teamCreateWin.Show();
-                   DashBoard dashBoard = new DashBoard();
-                    dashBoard.WindowState = WindowState.Maximized;
-                    dashBoard.Show();
+                    string json = File.ReadAllText("teamData.json");
+                    if(json == "")
+                    {
+
+                    TeamCreateWin teamCreateWin = new TeamCreateWin();
+                    teamCreateWin.WindowState = WindowState.Maximized;
+                    teamCreateWin.Show();
+                        
+                    }
+                    else if(json != "")
+                    {
+                        DashBoard dashBoard = new DashBoard();
+                        dashBoard.WindowState = WindowState.Maximized;
+                        dashBoard.Show();
+                    }
+
 
                     this.Close();
                 }
