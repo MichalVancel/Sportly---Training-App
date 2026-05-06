@@ -23,6 +23,7 @@ namespace Sportly.Dash
         {
             InitializeComponent();
             LoadUserData();
+            LoadEvents();
         }
 
         
@@ -45,6 +46,17 @@ namespace Sportly.Dash
         }
 
 
+        public void LoadEvents()
+        {
+           string path = "EventData.json";
+
+           if (File.Exists(path)) 
+           {
+
+               List<Event> events = JsonSerializer.Deserialize<List<Event>>(File.ReadAllText(path));
+               Events.ItemsSource = events;
+           }
+        }
 
 
 
