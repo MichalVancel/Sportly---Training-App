@@ -93,6 +93,10 @@ namespace Sportly
 
 
                     this.Close();
+                    //TeamCreateWin teamCreateWin = new TeamCreateWin();
+                    //teamCreateWin.WindowState = WindowState.Maximized;
+                    //teamCreateWin.Show();
+                    //this.Close();
                 }
                 else
                 {
