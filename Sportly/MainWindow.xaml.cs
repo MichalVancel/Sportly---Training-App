@@ -52,7 +52,7 @@ namespace Sportly
             }
             else
             {
-                File.WriteAllText(filePathUserData, "", Encoding.UTF8);
+                File.WriteAllText(filePathUserData, "" );
                 RegistrationWin registrationWin = new RegistrationWin();
                 registrationWin.WindowState = WindowState.Maximized;
                 registrationWin.Show();
@@ -91,10 +91,31 @@ namespace Sportly
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-           ResetPassword resetPassword = new ResetPassword();
-            resetPassword.WindowState = WindowState.Maximized;
-            resetPassword.Show();
-            this.Close( );
+            
+            if (File.Exists(filePathUserData))
+            {
+                string json = File.ReadAllText(filePathUserData);
+                if(json != "")
+                {
+                ResetPassword resetPassword = new ResetPassword();
+                resetPassword.WindowState = WindowState.Maximized;
+                resetPassword.Show();
+                this.Close( );
+
+                }
+                else if(json == "")
+                {
+                MessageBox.Show("Neexistuje pouzivatel, musis sa najprv zaregistrovat");
+                }
+
+            }
+            else if (!File.Exists(filePathUserData))
+            {
+                MessageBox.Show("Este nieje registrovany pouzivatel, musite registrovat pouzivatela");
+            }
+
+            
+            
 
         }
     }
