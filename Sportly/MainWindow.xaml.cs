@@ -75,14 +75,14 @@ namespace Sportly
 
                 if (Email.Text == savedUser.email && IsPassSame)
                 {
+                    DashBoard dashBoard = new DashBoard();
+                    dashBoard.WindowState = WindowState.Maximized;
+                    dashBoard.Show();
+                    this.Close();
                     //TeamCreateWin teamCreateWin = new TeamCreateWin();
                     //teamCreateWin.WindowState = WindowState.Maximized;
                     //teamCreateWin.Show();
-                   DashBoard dashBoard = new DashBoard();
-                    dashBoard.WindowState = WindowState.Maximized;
-                    dashBoard.Show();
-
-                    this.Close();
+                    //this.Close();
                 }
                 else
                 {
