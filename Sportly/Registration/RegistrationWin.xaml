@@ -13,8 +13,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Background="#B22222" Grid.Row="0" Height="60" Width="60" HorizontalAlignment="Left" Margin="81,80,0,51" CornerRadius="30">
-            <Button Content="←" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="0" Height="60"  Width="60" FontSize="70" Padding="0,-25,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Transparent" Foreground="White" Click="BackButton_Click" BorderBrush ="Transparent"/>
+        <Border Background="#B22222" Grid.Row="0" Height="60" Width="60" HorizontalAlignment="Left" Margin="34,80,0,51" CornerRadius="30">
+            <Button Content="←" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="0" Height="60"  Width="60" FontSize="70" Padding="0,-25,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Transparent" Foreground="White" Click="BackButton_Click" BorderBrush ="Transparent"/>
         </Border>
         <Label Content="REGISTRATION" 
            Grid.Row="0" 
