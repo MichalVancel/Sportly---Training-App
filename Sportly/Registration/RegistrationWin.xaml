@@ -39,39 +39,39 @@
 
                         <StackPanel Margin="0,0,60,0">
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                                <Label Content="Meno" Width="180" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                                <Label Content="Meno" Width="180" FontSize="28" FontWeight="Bold" Foreground="White" FontFamily="Artifakt Element Heavy"/>
                                 <TextBox x:Name="FirstName" Width="300" Height="45" FontSize="22" VerticalContentAlignment="Center" Background="#2D2D2D" Foreground="White" Padding="5,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                                <Label Content="Priezvisko" Width="180" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                                <Label Content="Priezvisko" Width="180" FontSize="28" FontWeight="Bold" Foreground="White" FontFamily="Artifakt Element Heavy"/>
                                 <TextBox x:Name="LastName" Width="300" Height="45" FontSize="22" VerticalContentAlignment="Center" Background="#2D2D2D" Foreground="White" Padding="5,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                                <Label Content="Dátum nar." Width="180" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                                <Label Content="Dátum nar." Width="180" FontSize="28" FontWeight="Bold" Foreground="White" FontFamily="Artifakt Element Heavy"/>
                                 <DatePicker x:Name="BirthDate" Width="300" Height="45" VerticalContentAlignment="Center" FontSize="20"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                                <Label Content="Adresa" Width="180" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                                <Label Content="Adresa" Width="180" FontSize="28" FontWeight="Bold" Foreground="White" FontFamily="Artifakt Element Heavy"/>
                                 <TextBox x:Name="Adress" Width="300" Height="45" FontSize="22" VerticalContentAlignment="Center" Background="#2D2D2D" Foreground="White" Padding="5,0"/>
                             </StackPanel>
                         </StackPanel>
 
                         <StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                                <Label Content="E-mail" Width="180" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                                <Label Content="E-mail" Width="180" FontSize="28" FontWeight="Bold" Foreground="White" FontFamily="Artifakt Element Heavy"/>
                                 <TextBox x:Name="EmailAdd" Width="300" Height="45" FontSize="22" VerticalContentAlignment="Center" Background="#2D2D2D" Foreground="White" Padding="5,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                                <Label Content="Telefón" Width="180" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                                <Label Content="Telefón" Width="180" FontSize="28" FontWeight="Bold" Foreground="White" FontFamily="Artifakt Element Heavy"/>
                                 <TextBox x:Name="PhoneNum" Width="300" Height="45" FontSize="22" VerticalContentAlignment="Center" Background="#2D2D2D" Foreground="White" Padding="5,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                                <Label Content="Pohlavie" Width="180" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                                <Label Content="Pohlavie" Width="180" FontSize="28" FontWeight="Bold" Foreground="White" FontFamily="Artifakt Element Heavy"/>
                                 <ComboBox x:Name="GenderSelect" Width="300" Height="45" VerticalContentAlignment="Center" FontSize="20" SelectionChanged="GenderSelect_SelectionChanged" Foreground="Black">
                                     <ComboBoxItem Content="Muž" Background="#2D2D2D" Foreground="White"/>
                                     <ComboBoxItem Content="Žena" Background="#2D2D2D" Foreground="White"/>
@@ -79,7 +79,7 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                                <Label Content="Heslo" Width="180" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                                <Label Content="Heslo" Width="180" FontSize="28" FontWeight="Bold" Foreground="White" FontFamily="Artifakt Element Heavy"/>
                                 <PasswordBox x:Name="PassWord" Width="300" Height="45" FontSize="22" VerticalContentAlignment="Center" Background="#2D2D2D" Foreground="White" Padding="5,0"/>
                             </StackPanel>
                         </StackPanel>
@@ -93,7 +93,7 @@
                             FontSize="24" 
                             FontWeight="Bold" 
                             Click="Button_Click"
-                            Cursor="Hand"/>
+                            Cursor="Hand" FontFamily="Artifakt Element Heavy"/>
                     </Border>
                 </StackPanel>
             </Border>
