@@ -23,6 +23,7 @@ namespace Sportly.Dash
         {
             InitializeComponent();
             LoadUserData();
+            LoadEvents();
         }
 
         
@@ -44,7 +45,29 @@ namespace Sportly.Dash
 
         }
 
+        public class Event
+        {
+            public string Miesto { get; set; }
+            public string Datum { get; set; }
+            public string CasOd { get; set; }
+            public string CasDo { get; set; }
+            public string Kategoria { get; set; }
+            public string Typ { get; set; }
 
+            public string EvenInfo => $"{Datum} - {Typ}: {Miesto} ({CasOd}-{CasDo})";
+        }
+
+        public void LoadEvents()
+        {
+           string path = "EventData.json";
+
+           if (File.Exists(path)) 
+           {
+
+               List<Event> events = JsonSerializer.Deserialize<List<Event>>(File.ReadAllText(path));
+               Events.ItemsSource = events;
+           }
+        }
 
 
 

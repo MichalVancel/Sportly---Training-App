@@ -46,9 +46,10 @@
                 <Border  BorderThickness="0,0,0,1" 
                 Height="1" VerticalAlignment="Top" Margin="0,65,0,0"/>
 
-                <ListBox Background="Transparent" BorderThickness="0" Foreground="White" 
+                <ListBox x:Name="Events"  Background="Transparent" BorderThickness="0" Foreground="White" 
                  FontSize="20" FontFamily="Artifakt Element Heavy" 
                  Margin="0,75,0,0">
+
                 </ListBox>
             </Grid>
         </Border>

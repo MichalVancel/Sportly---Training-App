@@ -58,5 +58,13 @@ namespace Sportly
                 MessageBox.Show("Nespravne udaje zadane, nemozno resetovat heslo, skuste znova");
             }
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow LoginWindow = new MainWindow();
+            LoginWindow.WindowState = WindowState.Maximized;
+            LoginWindow.Show();
+            this.Close();
+        }
     }
 }
