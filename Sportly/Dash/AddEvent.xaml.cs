@@ -50,7 +50,7 @@ namespace Sportly.Dash
                     }
                     catch
                     {
-                        // V prípade chyby začneme s novým zoznamom
+                        
                     }
                 }
             }
