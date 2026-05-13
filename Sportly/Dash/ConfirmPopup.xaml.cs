@@ -19,6 +19,10 @@ namespace Sportly.Dash
         private void NoButton_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
+            this.Hide();
+            AppologyWin appologyWin = new AppologyWin();
+            
+            appologyWin.ShowDialog();
             this.Close();
         }
     }
