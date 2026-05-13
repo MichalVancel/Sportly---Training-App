@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sportly.Dash"
         mc:Ignorable="d"
         Title="DashBoard" Height="800" Width="1000" Background="White">
-    <Grid>
+    <Grid Background="#121212">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="80"/>
@@ -35,20 +35,23 @@
         CornerRadius="25" Margin="10,20,20,20" Padding="15">
 
             <Grid>
-                <Border Background="#B22222" CornerRadius="12" Height="53" 
-                VerticalAlignment="Top" HorizontalAlignment="Right" 
-                Margin="0,5,5,0" Width="150">
-
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="203*"/>
+                    <RowDefinition Height="113*"/>
+                </Grid.RowDefinitions>
+                <Border Background="#B22222" CornerRadius="12" Height="53"  VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0,5,5,0" Width="150">
                     <Button x:Name="AddEventButton"  Content="Pridať Udalosť"  Background="Transparent" Foreground="White" FontFamily="Artifakt Element Heavy"  BorderBrush="Transparent"  Cursor="Hand" Click="AddEventButton_Click"/>
-                   
+                </Border>
+
+                <Border Background="#B22222" CornerRadius="12" Height="53"  VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="0,5,323,0" Width="150">
+                    <Button x:Name="RemoveEventButton"  Content="Odstrániť Udalosť"  Background="Transparent" Foreground="White" FontFamily="Artifakt Element Heavy"  BorderBrush="Transparent"  Cursor="Hand" Click="RemoveEventButton_Click"/>
                 </Border>
 
                 <Border  BorderThickness="0,0,0,1" 
                 Height="1" VerticalAlignment="Top" Margin="0,65,0,0"/>
 
-                <ListBox x:Name="Events" Background="Transparent" BorderThickness="0" Foreground="White" 
-                 FontSize="20" FontFamily="Artifakt Element Heavy" 
-                 Margin="0,75,0,0" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox x:Name="Events" Background="Transparent"  BorderThickness="0" Foreground="White"  FontSize="20"  FontFamily="Artifakt Element Heavy"  Margin="0,75,0,0" HorizontalContentAlignment="Stretch"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Grid.RowSpan="2" MouseDoubleClick="EventDetails_DoubleClick">
+        
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -56,21 +59,35 @@
                             <Setter Property="BorderThickness" Value="0"/>
                             <Setter Property="Padding" Value="0"/>
                             <Setter Property="Margin" Value="0,0,0,10"/>
-                            <!-- Remove default highlight on hover/select to match modern card style (Optional but looks better) -->
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="ListBoxItem">
-                                        <Border Background="Transparent">
+                                        <!-- Tento Border rieši efekt kliknutia/označenia -->
+                                        <Border x:Name="SelectionBorder"  Background="Transparent"   BorderBrush="Transparent"  BorderThickness="2"  CornerRadius="10">
+              
                                             <ContentPresenter />
                                         </Border>
+
+                                        <ControlTemplate.Triggers>
+                                            <!-- Efekt pri kliknutí na udalosť -->
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="SelectionBorder" Property="BorderBrush" Value="White"/>
+                                                <Setter TargetName="SelectionBorder" Property="Background" Value="#252526"/>
+                                            </Trigger>
+                                            <!-- Efekt pri prejdení myšou -->
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="SelectionBorder" Property="Background" Value="#1E1E1E"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                         </Style>
                     </ListBox.ItemContainerStyle>
+
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="#1C1C1E" CornerRadius="8" Padding="15,15,15,15">
+                            <Border Background="#1C1C1E" CornerRadius="8" Padding="15">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -82,7 +99,7 @@
                                     <Border Grid.Column="0" Width="6" CornerRadius="3" Margin="0,0,15,0">
                                         <Border.Style>
                                             <Style TargetType="Border">
-                                                <Setter Property="Background" Value="#A2CC3A"/> <!-- default (Tréning/Green) -->
+                                                <Setter Property="Background" Value="#A2CC3A"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding Typ}" Value="Zápas">
                                                         <Setter Property="Background" Value="#FF5252"/>
@@ -131,12 +148,12 @@
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsChecked" Value="True">
                                                         <Setter TargetName="StateBorder" Property="Background" Value="#1B4220"/>
-                                                        <Setter TargetName="StateIcon" Property="Text" Value="&#xE73E;"/> <!-- Checkmark icon -->
+                                                        <Setter TargetName="StateIcon" Property="Text" Value="&#xE73E;"/>
                                                         <Setter TargetName="StateIcon" Property="Foreground" Value="#4CAF50"/>
                                                     </Trigger>
                                                     <Trigger Property="IsChecked" Value="False">
                                                         <Setter TargetName="StateBorder" Property="Background" Value="#4A1C1C"/>
-                                                        <Setter TargetName="StateIcon" Property="Text" Value="&#xE711;"/> <!-- X icon -->
+                                                        <Setter TargetName="StateIcon" Property="Text" Value="&#xE711;"/>
                                                         <Setter TargetName="StateIcon" Property="Foreground" Value="#FF5252"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
@@ -150,10 +167,15 @@
                 </ListBox>
             </Grid>
         </Border>
+        <Border BorderBrush="#333333" BorderThickness="1" Background="#1E1E1E" CornerRadius="25" Margin="20,296,10,20">
+
+            <TextBlock Text="Zatial sa tu nenachádza žiadny sponzor" Foreground="White" Opacity="0.2"  FontSize="20"  FontFamily="Artifakt Element Heavy"  HorizontalAlignment="Center"  VerticalAlignment="Stretch" IsHitTestVisible="False" Height="44" />
+        </Border>
+
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="30,0,30,10">
             <Border Background="#B22222" CornerRadius="12" HorizontalAlignment="Left" Width="100" Height="55">
-                <Button Content="&#xE10F;" FontSize="35" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Width="100" Click="LButton_Click"/>
+                <Button Content="&#xE10F;" FontSize="35" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Click="LogOutButton_Click" />
             </Border>
 
             <Border Background="#B22222" CornerRadius="12" HorizontalAlignment="Center" Width="100" Height="55">
@@ -161,7 +183,7 @@
             </Border>
 
             <Border Background="#B22222" CornerRadius="12" HorizontalAlignment="Right" Width="100" Height="55">
-                <Button Content="&#xE77B;" FontSize="30" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Click="UserButton_Click"/>
+                <Button Content="&#xE77B;" FontSize="30" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Height="55" VerticalAlignment="Top" Click="UserInfoButton_Click"/>
             </Border>
         </Grid>
 
