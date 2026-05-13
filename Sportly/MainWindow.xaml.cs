@@ -139,5 +139,21 @@ namespace Sportly
             
 
         }
+
+        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            if(File.Exists(filePathUserData))
+            {
+                string userData = File.ReadAllText(filePathUserData);
+                if (userData != "")
+                {
+                    DeleteUser deleteUser = new DeleteUser();
+                    deleteUser.WindowState = WindowState.Maximized;
+                    deleteUser.Show();
+                    this.Close();
+                }
+
+            }
+        }
     }
 }
