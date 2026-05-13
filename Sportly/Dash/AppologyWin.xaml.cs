@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,6 +22,27 @@ namespace Sportly.Dash
         public AppologyWin()
         {
             InitializeComponent();
+        }
+
+        private void AppologyTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        internal class AppologyData
+        {
+            public string ApologyText { get; set; }
+        }
+
+        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            var apologyData = new AppologyData
+            {
+                ApologyText = AppologyTextBox.Text
+            };
+
+            string json = JsonSerializer.Serialize(apologyData);
+            File.WriteAllText("Appology.json", json);
         }
     }
 }
