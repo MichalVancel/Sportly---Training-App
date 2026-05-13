@@ -72,31 +72,32 @@ namespace Sportly
                 ExistingUserData savedUser = JsonSerializer.Deserialize<ExistingUserData>(Userdata);
                 bool IsPassSame = BCrypt.Net.BCrypt.EnhancedVerify(PassWord.Password, savedUser.password);
 
+                string teamDataPath = "teamData.json";
 
                 if (Email.Text == savedUser.email && IsPassSame)
                 {
-                    string json = File.ReadAllText("teamData.json");
-                    if(json == "")
-                    {
+                    
+                    
+                    
+                    if(!File.Exists(teamDataPath))
+                    { 
 
-                    TeamCreateWin teamCreateWin = new TeamCreateWin();
-                    teamCreateWin.WindowState = WindowState.Maximized;
-                    teamCreateWin.Show();
+                            TeamCreateWin teamCreateWin = new TeamCreateWin();
+                            teamCreateWin.WindowState = WindowState.Maximized;
+                            teamCreateWin.Show();
+                            this.Close();
+                    }
+                    else 
+                     {
+                         DashBoard dashBoard = new DashBoard();
+                         dashBoard.WindowState = WindowState.Maximized;
+                         dashBoard.Show();
+                        this.Close();
+                     }
                         
-                    }
-                    else if(json != "")
-                    {
-                        DashBoard dashBoard = new DashBoard();
-                        dashBoard.WindowState = WindowState.Maximized;
-                        dashBoard.Show();
-                    }
+                 }
 
 
-                    this.Close();
-                    //TeamCreateWin teamCreateWin = new TeamCreateWin();
-                    //teamCreateWin.WindowState = WindowState.Maximized;
-                    //teamCreateWin.Show();
-                    //this.Close();
                 }
                 else
                 {
@@ -107,7 +108,7 @@ namespace Sportly
 
 
            
-        }
+        
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
