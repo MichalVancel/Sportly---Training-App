@@ -56,7 +56,7 @@
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="30,0,30,10">
             <Border Background="#B22222" CornerRadius="12" HorizontalAlignment="Left" Width="100" Height="55">
-                <Button Content="&#xE10F;" FontSize="35" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Width="100" Click="LButton_Click"/>
+                <Button Content="&#xE10F;" FontSize="35" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
             </Border>
 
             <Border Background="#B22222" CornerRadius="12" HorizontalAlignment="Center" Width="100" Height="55">
@@ -64,7 +64,7 @@
             </Border>
 
             <Border Background="#B22222" CornerRadius="12" HorizontalAlignment="Right" Width="100" Height="55">
-                <Button Content="&#xE77B;" FontSize="30" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Click="UserButton_Click"/>
+                <Button Content="&#xE77B;" FontSize="30" Background="Transparent" BorderBrush="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
             </Border>
         </Grid>
 

@@ -23,7 +23,7 @@ namespace Sportly.Dash
         {
             InitializeComponent();
             LoadUserData();
-            
+            LoadEvents();
         }
 
         
@@ -85,24 +85,6 @@ namespace Sportly.Dash
             AddEvent addEvent = new AddEvent();
             addEvent.Show();
 
-        }
-
-        private void UserButton_Click(object sender, RoutedEventArgs e)
-        {
-            UserProfile userProfile = new UserProfile();
-            userProfile.WindowState = WindowState.Maximized;
-            userProfile.Show();
-            this.Close();
-        }
-
-        
-
-        private void LogOutButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.WindowState = WindowState.Maximized;
-            mainWindow.Show();
-            this.Close();
         }
     }
 }
