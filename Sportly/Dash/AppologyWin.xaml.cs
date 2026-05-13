@@ -43,6 +43,9 @@ namespace Sportly.Dash
 
             string json = JsonSerializer.Serialize(apologyData);
             File.WriteAllText("Appology.json", json);
+            MessageBox.Show("Ospravedlnenka napísaná");
+            this.Close();
+
         }
     }
 }

@@ -5,34 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sportly.Dash"
         mc:Ignorable="d"
-        Title="AppologyWin" Height="550" Width="500"
+        Title="AppologyWin" Height="550" Width="600"
          Background="#1C1C1C">
     <Grid Background="#121212">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Label Content="OSPRAVEDLNENKA" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,50,0,20" FontFamily="Artifakt Element Heavy" FontSize="35"  Foreground="#B22222"/>
+        <StackPanel Margin="38,50,38,35">
 
-        <Border BorderBrush="#333333" BorderThickness="1" Background="#1E1E1E" Margin="38,150,38,106" CornerRadius="25"/>
+            <Label Content="OSPRAVEDLNENKA" 
+               HorizontalAlignment="Center" 
+               Margin="0,0,0,20" 
+               FontFamily="Artifakt Element Heavy" 
+               FontSize="35" 
+               Foreground="#B22222"/>
 
+            <Border BorderBrush="#333333" 
+                BorderThickness="1" 
+                Background="#1E1E1E" 
+                CornerRadius="25" 
+                Padding="22">
 
-        <Label Content="Sem napíš, prečo sa nemôžeš zúčastniť" HorizontalAlignment="Left" Margin="60,221,0,0" VerticalAlignment="Top" Foreground="White" FontSize="15" FontFamily="Artifakt Element Heavy"/>
-        <TextBox x:Name="AppologyTextBox" Height="40" Background="#2D2D2D" Foreground="White" VerticalContentAlignment="Center" FontSize="16" Padding="5,0" Margin="60,269,60,225" TextChanged="AppologyTextBox_TextChanged"/>
+                <StackPanel>
+                    <Label Content="Sem napíš, prečo sa nemôžeš zúčastniť" 
+                       HorizontalAlignment="Left" 
+                       Foreground="White" 
+                       FontSize="15" 
+                       FontFamily="Artifakt Element Heavy"
+                       Margin="22,0,0,0"/>
 
-        <Border BorderThickness="1" Background="#B22222" Margin="160,454,160,35" Width="180" Height="45" CornerRadius="12">
-            <Button Content="Potvrdiť" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Height="45" FontFamily="Artifakt Element Heavy" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="Transparent" Click="ConfirmButton_Click"/>
-        </Border>
+                    <TextBox x:Name="AppologyTextBox" 
+                         Height="40" 
+                         Background="#2D2D2D" 
+                         Foreground="White" 
+                         VerticalContentAlignment="Center" 
+                         FontSize="16" 
+                         Padding="5,0" 
+                         Margin="22,20,22,20" 
+                         TextChanged="AppologyTextBox_TextChanged"/>
+                </StackPanel>
+            </Border>
 
+            <Border Background="#B22222" 
+                CornerRadius="12" 
+                Width="180" 
+                Height="45" 
+                HorizontalAlignment="Center"
+                Margin="0,20,0,0">
+                <Button Content="Potvrdiť" 
+                    Width="180" 
+                    Height="45" 
+                    FontFamily="Artifakt Element Heavy" 
+                    FontSize="14" 
+                    Foreground="White" 
+                    Background="Transparent" 
+                    BorderBrush="Transparent" 
+                    Click="ConfirmButton_Click"/>
+            </Border>
 
-
-
-
-
-
-
-
-
-
+        </StackPanel>
     </Grid>
 </Window>

@@ -125,13 +125,7 @@ namespace Sportly.Dash
 
         
 
-        private void LogOutButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.WindowState = WindowState.Maximized;
-            mainWindow.Show();
-            this.Close();
-        }
+       
 
         private void LButton_Click(object sender, RoutedEventArgs e)
         {
@@ -182,6 +176,44 @@ namespace Sportly.Dash
                     catch { }
                 }
             }
+        }
+
+        private void UserInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserProfile userProfile = new UserProfile();
+            userProfile.WindowState = WindowState.Maximized;
+            userProfile.Show();
+        }
+
+        private void LogOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.WindowState = WindowState.Maximized;
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void RemoveEventButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(Events.SelectedItem is Event selectedEvent)
+            {
+               
+                    if (Events.ItemsSource is List<Event> allEvents)
+                    {
+                        allEvents.Remove(selectedEvent);
+                        string jsonData = JsonSerializer.Serialize(allEvents);
+                        File.WriteAllText("EventData.json", jsonData);
+                        LoadEvents();
+                    }
+                
+            }
+        }
+
+        private void EventDetails_DoubleClick(object sender, RoutedEventArgs e)
+        {
+                DetailWin detail = new DetailWin();              
+                detail.WindowState = WindowState.Maximized;             
+                detail.ShowDialog();
         }
     }
 }
