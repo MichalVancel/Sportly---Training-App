@@ -46,10 +46,107 @@
                 <Border  BorderThickness="0,0,0,1" 
                 Height="1" VerticalAlignment="Top" Margin="0,65,0,0"/>
 
-                <ListBox x:Name="Events"  Background="Transparent" BorderThickness="0" Foreground="White" 
+                <ListBox x:Name="Events" Background="Transparent" BorderThickness="0" Foreground="White" 
                  FontSize="20" FontFamily="Artifakt Element Heavy" 
-                 Margin="0,75,0,0">
+                 Margin="0,75,0,0" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Margin" Value="0,0,0,10"/>
+                            <!-- Remove default highlight on hover/select to match modern card style (Optional but looks better) -->
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border Background="Transparent">
+                                            <ContentPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#1C1C1E" CornerRadius="8" Padding="15,15,15,15">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
+                                    <!-- Left highlight bar -->
+                                    <Border Grid.Column="0" Width="6" CornerRadius="3" Margin="0,0,15,0">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Background" Value="#A2CC3A"/> <!-- default (Tréning/Green) -->
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Typ}" Value="Zápas">
+                                                        <Setter Property="Background" Value="#FF5252"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+
+                                    <!-- Main content area -->
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                        <WrapPanel Margin="0,0,0,5">
+                                            <TextBlock Text="{Binding Typ}" Foreground="White" FontSize="20" FontWeight="SemiBold" />
+                                            <TextBlock Text=" - " Foreground="White" FontSize="20" FontWeight="SemiBold" />
+                                            <TextBlock Text="{Binding Kategoria}" Foreground="White" FontSize="20" FontWeight="SemiBold" />
+                                            <TextBlock Text=" - " Foreground="White" FontSize="20" FontWeight="SemiBold" />
+                                            <TextBlock Text="{Binding Miesto}" Foreground="White" FontSize="20" FontWeight="SemiBold" />
+                                        </WrapPanel>
+
+                                        <WrapPanel Margin="0,0,0,10">
+                                            <TextBlock Text="{Binding Datum}" Foreground="#A0A0A0" FontSize="14" />
+                                            <TextBlock Text=" " Foreground="#A0A0A0" FontSize="14" />
+                                            <TextBlock Text="{Binding CasOd}" Foreground="#A0A0A0" FontSize="14" />
+                                            <TextBlock Text=" - " Foreground="#A0A0A0" FontSize="14" />
+                                            <TextBlock Text="{Binding CasDo}" Foreground="#A0A0A0" FontSize="14" />
+                                            <TextBlock Text="  ·  " Foreground="#A0A0A0" FontSize="14" />
+                                            <TextBlock Text="{Binding Miesto}" Foreground="#A0A0A0" FontSize="14" />
+                                        </WrapPanel>
+
+                                        <!-- Participants badge -->
+                                        <Border Background="Black" CornerRadius="6" HorizontalAlignment="Left" Padding="10,5">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="&#xE77B;" FontFamily="Segoe MDL2 Assets" Foreground="White" FontSize="12" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding PocetUcastnikov}" Foreground="White" FontSize="14" FontWeight="Bold" FontFamily="Segoe UI" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+
+                                    <!-- Right toggle button -->
+                                    <ToggleButton Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,0,0,0" Cursor="Hand" PreviewMouseLeftButtonDown="AttendanceToggleButton_PreviewMouseLeftButtonDown" IsChecked="{Binding Ucast, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                        <ToggleButton.Template>
+                                            <ControlTemplate TargetType="ToggleButton">
+                                                <Border x:Name="StateBorder" Width="32" Height="32" CornerRadius="16" Background="#333333">
+                                                    <TextBlock x:Name="StateIcon" Text="&#xE11B;" FontFamily="Segoe MDL2 Assets" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsChecked" Value="True">
+                                                        <Setter TargetName="StateBorder" Property="Background" Value="#1B4220"/>
+                                                        <Setter TargetName="StateIcon" Property="Text" Value="&#xE73E;"/> <!-- Checkmark icon -->
+                                                        <Setter TargetName="StateIcon" Property="Foreground" Value="#4CAF50"/>
+                                                    </Trigger>
+                                                    <Trigger Property="IsChecked" Value="False">
+                                                        <Setter TargetName="StateBorder" Property="Background" Value="#4A1C1C"/>
+                                                        <Setter TargetName="StateIcon" Property="Text" Value="&#xE711;"/> <!-- X icon -->
+                                                        <Setter TargetName="StateIcon" Property="Foreground" Value="#FF5252"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </ToggleButton.Template>
+                                    </ToggleButton>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </Grid>
         </Border>

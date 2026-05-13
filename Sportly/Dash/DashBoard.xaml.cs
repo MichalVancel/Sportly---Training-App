@@ -23,7 +23,7 @@ namespace Sportly.Dash
         {
             InitializeComponent();
             LoadUserData();
-            
+            LoadEvents();
         }
 
         
@@ -45,7 +45,7 @@ namespace Sportly.Dash
 
         }
 
-        public class Event
+        public class Event : System.ComponentModel.INotifyPropertyChanged
         {
             public string Miesto { get; set; }
             public string Datum { get; set; }
@@ -54,19 +54,44 @@ namespace Sportly.Dash
             public string Kategoria { get; set; }
             public string Typ { get; set; }
 
+            private int _pocetUcastnikov;
+            public int PocetUcastnikov 
+            { 
+                get => _pocetUcastnikov; 
+                set { _pocetUcastnikov = value; OnPropertyChanged(nameof(PocetUcastnikov)); }
+            }
+
+            private bool? _ucast;
+            public bool? Ucast 
+            { 
+                get => _ucast; 
+                set { _ucast = value; OnPropertyChanged(nameof(Ucast)); }
+            }
+
+            public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+            protected void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(name));
+
             public string EvenInfo => $"{Datum} - {Typ}: {Miesto} ({CasOd}-{CasDo})";
+
+            public override string ToString() => EvenInfo;
         }
 
         public void LoadEvents()
         {
-           string path = "EventData.json";
+            string path = "EventData.json";
 
-           if (File.Exists(path)) 
-           {
-
-               List<Event> events = JsonSerializer.Deserialize<List<Event>>(File.ReadAllText(path));
-               Events.ItemsSource = events;
-           }
+            if (File.Exists(path))
+            {
+                try
+                {
+                    List<Event> events = JsonSerializer.Deserialize<List<Event>>(File.ReadAllText(path));
+                    Events.ItemsSource = null;
+                    Events.ItemsSource = events;
+                }
+                catch
+                {
+                }
+            }
         }
 
 
@@ -83,8 +108,11 @@ namespace Sportly.Dash
         private void AddEventButton_Click(object sender, RoutedEventArgs e)
         {
             AddEvent addEvent = new AddEvent();
+            addEvent.Closed += (s, args) => 
+            {
+                LoadEvents();
+            };
             addEvent.Show();
-
         }
 
         private void UserButton_Click(object sender, RoutedEventArgs e)
@@ -103,6 +131,57 @@ namespace Sportly.Dash
             mainWindow.WindowState = WindowState.Maximized;
             mainWindow.Show();
             this.Close();
+        }
+
+        private void LButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+// ai kod - robi ze novy event typu zapas a pod sa prida do dashboardu automaticky a otevre
+        private void AttendanceToggleButton_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (sender is System.Windows.Controls.Primitives.ToggleButton toggleButton && toggleButton.DataContext is Event clickedEvent)
+            {
+                // Zastavíme predvolené správanie kliknutia
+                e.Handled = true; 
+
+                ConfirmPopup popup = new ConfirmPopup();
+                popup.Owner = this;
+
+                bool? result = popup.ShowDialog();
+
+                // Ak užívateľ zavrel popup bez výberu, neurobíme nič
+                if (result == null) return;
+
+                bool? oldUcast = clickedEvent.Ucast;
+                bool newUcast = result.Value;
+
+                if (newUcast != oldUcast)
+                {
+                    // Update the number of participants
+                    if (newUcast == true)
+                    {
+                        clickedEvent.PocetUcastnikov++;
+                    }
+                    else if (oldUcast == true && newUcast == false)
+                    {
+                        clickedEvent.PocetUcastnikov--;
+                    }
+
+                    clickedEvent.Ucast = newUcast;
+
+                    // Uložiť zmeny do JSONu
+                    try
+                    {
+                        if (Events.ItemsSource is List<Event> allEvents)
+                        {
+                            string jsonData = JsonSerializer.Serialize(allEvents);
+                            File.WriteAllText("EventData.json", jsonData);
+                        }
+                    }
+                    catch { }
+                }
+            }
         }
     }
 }

@@ -47,8 +47,6 @@ namespace Sportly.Registration
                 PhoneNumber = PhoneNum.Text,
                 Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
                 password = BCrypt.Net.BCrypt.EnhancedHashPassword(PassWord.Password)
-                
-
             };
             
             
