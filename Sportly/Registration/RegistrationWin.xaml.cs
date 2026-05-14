@@ -48,20 +48,27 @@ namespace Sportly.Registration
                 Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
                 password = BCrypt.Net.BCrypt.EnhancedHashPassword(PassWord.Password)
             };
-            
-            
+            DateTime date = new DateTime();
+
+            if (BirthDate.SelectedDate < DateTime.Now )
+            {
             string json = JsonSerializer.Serialize(getData);
-
-            
             File.WriteAllText("userData.json", json);
-
-           
 
             MainWindow LoginWindow = new MainWindow();
             MessageBox.Show("Registrácia úspešná");
             LoginWindow.WindowState = WindowState.Maximized;
             LoginWindow.Show();
             this.Close();
+            }
+
+            else
+            {
+                MessageBox.Show("Pre registráciu je potrebne zadat platny datum narodenia ");
+            }
+
+           
+
 
 
             
