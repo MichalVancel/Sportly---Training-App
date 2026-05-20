@@ -48,7 +48,7 @@ namespace Sportly.Registration
                 Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
                 password = BCrypt.Net.BCrypt.EnhancedHashPassword(PassWord.Password)
             };
-            DateTime date = new DateTime();
+            
 
             if (BirthDate.SelectedDate < DateTime.Now )
             {
