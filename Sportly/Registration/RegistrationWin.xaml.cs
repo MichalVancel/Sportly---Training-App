@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Text.Json;
 using System.IO;
 using BCrypt;
+using System.Text.RegularExpressions;
 namespace Sportly.Registration
 {
     /// <summary>
@@ -52,14 +53,24 @@ namespace Sportly.Registration
 
             if (BirthDate.SelectedDate < DateTime.Now )
             {
-            string json = JsonSerializer.Serialize(getData);
-            File.WriteAllText("userData.json", json);
+                 if(!Regex.IsMatch(PhoneNum.Text, "^[0-9]+$"))
+                {
+                    MessageBox.Show("Zle zadané telefónne číslo");
+                }
 
-            MainWindow LoginWindow = new MainWindow();
-            MessageBox.Show("Registrácia úspešná");
-            LoginWindow.WindowState = WindowState.Maximized;
-            LoginWindow.Show();
-            this.Close();
+                else
+                {
+                 
+                 string json = JsonSerializer.Serialize(getData);
+                    File.WriteAllText("userData.json", json);
+
+                 MainWindow LoginWindow = new MainWindow();
+                 MessageBox.Show("Registrácia úspešná");
+                 LoginWindow.WindowState = WindowState.Maximized;
+                 LoginWindow.Show();
+                 this.Close();
+
+                }
             }
 
             else
