@@ -1,8 +1,10 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -38,31 +40,44 @@ namespace Sportly.Dash
 
             string path = "EventData.json";
             List<DashBoard.Event> events = new List<DashBoard.Event>();
-
-            if (File.Exists(path))
+            if (!Regex.IsMatch(TimeTo.Text, "^[0-9]+$") || !Regex.IsMatch(TimeFrom.Text, "^[0-9]+$"))
             {
-                string existingJson = File.ReadAllText(path);
-                if (!string.IsNullOrWhiteSpace(existingJson))
-                {
-                    try
-                    {
-                        events = System.Text.Json.JsonSerializer.Deserialize<List<DashBoard.Event>>(existingJson) ?? new List<DashBoard.Event>();
-                    }
-                    catch
-                    {
-                        // V prípade chyby začneme s novým zoznamom
-                    }
-                }
+                MessageBox.Show("Zle zadaný čas");
+
+
+               
             }
+            else
+            {
+                    
+                    if (File.Exists(path))
+                    {
+                        string existingJson = File.ReadAllText(path);
 
-            events.Add(newEvent);
 
-            string jsonData = System.Text.Json.JsonSerializer.Serialize(events);
-            File.WriteAllText(path, jsonData);
+                        if (!string.IsNullOrWhiteSpace(existingJson))
+                        {
+                            try
+                            {
+                                events = System.Text.Json.JsonSerializer.Deserialize<List<DashBoard.Event>>(existingJson) ?? new List<DashBoard.Event>();
+                            }
+                            catch
+                            {
 
-            MessageBox.Show("Udalosť sa uložila");
+                            }
+                        }
+                    }
 
-            this.Close();
+                    events.Add(newEvent);
+
+                    string jsonData = System.Text.Json.JsonSerializer.Serialize(events);
+                    File.WriteAllText(path, jsonData);
+
+                    MessageBox.Show("Udalosť sa uložila");
+
+                    this.Close();
+
+            }
         }
 
         private void EventKategory_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -117,5 +117,6 @@
             </Border>
 
         </StackPanel>
+        <Button x:Name="DeleteUser" Content="Button" HorizontalAlignment="Left" Margin="85,266,0,0" Grid.Row="1" VerticalAlignment="Top" Click="DeleteUser_Click"/>
     </Grid>
 </Window>
