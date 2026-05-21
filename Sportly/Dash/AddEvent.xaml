@@ -21,13 +21,13 @@
 
                 <Label Content="Čas" Margin="105,135,0,0" Foreground="White" Height="31" Width="46" FontSize="17" FontFamily="Artifakt Element Heavy"/>
                 <Label Content="Od" Margin="191,121,0,0" Foreground="White" Height="31" Width="36" FontSize="17" FontFamily="Artifakt Element Heavy"/>
-                <TextBox x:Name="TimeFrom" Margin="235,124,0,0" Width="160" Height="28" Background="#2D2D2D" Foreground="White" FontSize="16"/>
+                <TextBox x:Name="TimeFrom" Margin="235,124,0,0" Width="160" Height="28" Background="#2D2D2D" Foreground="White" FontSize="16" TextChanged="TimeFrom_TextChanged"/>
 
                 <Label Content="Do" Margin="191,152,0,0" Foreground="White" Height="31" Width="36" FontSize="17" FontFamily="Artifakt Element Heavy"/>
                 <TextBox x:Name="TimeTo" Margin="235,155,0,0" Width="160" Height="28" Background="#2D2D2D" Foreground="White" FontSize="16"/>
 
                 <Label Content="Kategória" Margin="105,210,0,0" Foreground="White" Height="33" Width="92" FontSize="17" FontFamily="Artifakt Element Heavy"/>
-                <ComboBox x:Name="EventKategory" Margin="235,212,0,0" Width="160" Height="28" Background="#2D2D2D" Foreground="White" FontSize="16" SelectionChanged="EventKategory_SelectionChanged">
+                <ComboBox x:Name="EventKategory" Margin="235,212,0,0" Width="160" Height="28" Background="#2D2D2D" Foreground="Black" FontSize="16" SelectionChanged="EventKategory_SelectionChanged">
                     <ComboBoxItem Content="Muži" Background="#2D2D2D" Foreground="White"/>
                     <ComboBoxItem Content="Juniori" Background="#2D2D2D" Foreground="White"/>
                     <ComboBoxItem Content="Dorastenci" Background="#2D2D2D" Foreground="White"/>
@@ -36,7 +36,7 @@
                 </ComboBox>
 
                 <Label Content="Typ" Margin="105,255,0,0" Foreground="White" Height="31" Width="46" FontSize="17" FontFamily="Artifakt Element Heavy"/>
-                <ComboBox x:Name="EventType" Margin="235,257,0,0" Width="160" Background="#2D2D2D" Foreground="White" FontSize="16" Height="28">
+                <ComboBox x:Name="EventType" Margin="235,257,0,0" Width="160" Background="#2D2D2D" Foreground="Black" FontSize="16" Height="28" SelectionChanged="EventType_SelectionChanged">
                     <ComboBoxItem Content="Tréning" Background="#2D2D2D" Foreground="White"/>
                     <ComboBoxItem Content="Zápas" Background="#2D2D2D" Foreground="White"/>
                 </ComboBox>

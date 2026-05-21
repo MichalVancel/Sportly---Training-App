@@ -5,13 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sportly"
         mc:Ignorable="d"
-        Title="DeleteUser" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="DeleteUser1" Content="Button" HorizontalAlignment="Left" Margin="314,320,0,0" VerticalAlignment="Top" Click="DeleteUser1_Click"/>
-        <TextBox x:Name="email" HorizontalAlignment="Left" Margin="354,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="email_TextChanged"/>
-        <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="400,204,0,0"   VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="firstName" HorizontalAlignment="Left" Margin="145,105,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="lastName" HorizontalAlignment="Left" Margin="145,148,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        Title="DeleteUser" Height="550" Width="800">
+    <Grid Background="#121212">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="VYMAZAŤ ÚČET" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0" Margin="0,29,0,0" FontFamily="Artifakt Element Heavy" Foreground="#B22222" FontSize="40" Height="66" Width="302"/>
+
+        <Border Background="#B22222" Grid.Row="0" Width="60" HorizontalAlignment="Left" Margin="69,33,0,12" CornerRadius="30">
+            <Button Content="←" HorizontalAlignment="Center"  VerticalAlignment="Top" Grid.Row="0" Height="60"  Width="60" FontSize="70" Padding="0,-25,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Transparent" Foreground="White" Click="BackButton_Click" BorderBrush ="Transparent"/>
+        </Border>
+
+
+        <Grid Grid.Row="1" Width="800" Height="455" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Border Background="#1E1E1E" BorderThickness="1" CornerRadius="25" BorderBrush="#333333" Margin="89,26,89,88"/>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="34" Margin="218,93,173,0">
+                <Label Content="MENO" Foreground="White" FontFamily="Artifakt Element Heavy" FontSize="22" Height="34" Width="200" Padding="0" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="firstName" TextWrapping="Wrap" Text="" Background="#2D2D2D" Foreground="White" FontSize="15" Height="34" Width="209" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="34" Margin="218,147,173,0">
+                <Label Content="PRIEZVISKO" Foreground="White" FontFamily="Artifakt Element Heavy" FontSize="22" Height="34" Width="200" Padding="0" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="lastName" TextWrapping="Wrap" Text="" Background="#2D2D2D" Foreground="White" FontSize="15" Height="34" Width="209" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="34" Margin="218,201,173,0">
+                <Label Content="EMAIL" Foreground="White" FontFamily="Artifakt Element Heavy" FontSize="22" Height="34" Width="200" Padding="0" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="email" TextWrapping="Wrap" Text="" Background="#2D2D2D" Foreground="White" FontSize="15" Height="34" Width="209" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="34" Margin="218,257,173,0">
+                <Label Content="HESLO" Foreground="White" FontFamily="Artifakt Element Heavy" FontSize="22" Height="34" Width="200" Padding="0" VerticalContentAlignment="Center"/>
+                <PasswordBox x:Name="password" Background="#2D2D2D" Foreground="White" FontSize="15" Height="34" Width="209" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,19">
+                <Border BorderThickness="1" CornerRadius="10" Background="#B22222" Height="52" Width="196" HorizontalAlignment="Center">
+                    <Button x:Name="deleteUser" Content="Vymazať Účet" HorizontalAlignment="Center" VerticalAlignment="Center" Click="DeleteUser_Click" Height="52" Width="196" Foreground="White" Background="Transparent" BorderBrush="Transparent" FontFamily="Artifakt Element Heavy" FontSize="18"/>
+                </Border>
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </Window>
