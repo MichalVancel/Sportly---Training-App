@@ -84,5 +84,15 @@ namespace Sportly.Dash
         {
 
         }
+
+        private void EventType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TimeFrom_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

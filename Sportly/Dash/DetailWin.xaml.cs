@@ -21,5 +21,14 @@ namespace Sportly.Dash
         {
             InitializeComponent();
         }
-    }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            DashBoard dash = new DashBoard();
+            dash.WindowState = WindowState.Maximized;
+            dash.Show();
+            this.Close();
+
+        }
+    }   
 }
