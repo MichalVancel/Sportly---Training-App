@@ -28,6 +28,13 @@ namespace Sportly
 
         private void DeleteUser_Click(object sender, RoutedEventArgs e)
         {
+
+            if (string.IsNullOrEmpty(email.Text) || string.IsNullOrEmpty(password.Password) || string.IsNullOrEmpty(firstName.Text) || string.IsNullOrEmpty(lastName.Text))
+            {
+                MessageBox.Show("Vyplňte všechny polia pre vzmayanie účtu");
+                return;
+            }
+
             string jsonfile = "userData.json";
             if(!File.Exists(jsonfile))
             {
@@ -59,7 +66,7 @@ namespace Sportly
             }
             
           
-               }
+        }
 
         private void email_TextChanged(object sender, TextChangedEventArgs e)
         {
