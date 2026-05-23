@@ -27,7 +27,12 @@ namespace Sportly.Dash
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+            if (string.IsNullOrWhiteSpace(PlaceName.Text) || EventDate.SelectedDate == null || string.IsNullOrWhiteSpace(TimeFrom.Text) || string.IsNullOrWhiteSpace(TimeTo.Text) || EventKategory.SelectedItem == null || EventType.SelectedItem == null)
+            {
+                MessageBox.Show("Vyplňte všetky polia");
+                return;
+            }
             var newEvent = new DashBoard.Event
             {
                 Miesto = PlaceName.Text,
@@ -73,7 +78,7 @@ namespace Sportly.Dash
                     string jsonData = System.Text.Json.JsonSerializer.Serialize(events);
                     File.WriteAllText(path, jsonData);
 
-                    MessageBox.Show("Udalosť sa uložila");
+                    MessageBox.Show("Udalosť pridaná");
 
                     this.Close();
 
