@@ -26,7 +26,7 @@ namespace Sportly
         public MainWindow()
         {
             InitializeComponent();
-           
+           WindowState = WindowState.Maximized;
         }
 
             string filePathUserData = "userData.json";
@@ -40,7 +40,7 @@ namespace Sportly
                 
                 if (DoesUserExist != "")
                 {
-                    MessageBox.Show("Dosiahnuty maximalny pocet registrovanych pouzivatelov");
+                    MessageBox.Show("Môžeš mať iba jeden účet!");
                 }
                 else
                 {

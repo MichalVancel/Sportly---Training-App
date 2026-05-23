@@ -37,47 +37,52 @@ namespace Sportly.Registration
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            var getData = new ExistingUserData
+            if (string.IsNullOrWhiteSpace(FirstName.Text) || string.IsNullOrWhiteSpace(LastName.Text) || string.IsNullOrWhiteSpace(Adress.Text) || string.IsNullOrWhiteSpace(EmailAdd.Text) || string.IsNullOrWhiteSpace(PhoneNum.Text) || GenderSelect.SelectedItem == null || string.IsNullOrWhiteSpace(PassWord.Password))
             {
-                firstName = FirstName.Text,
-                lastName = LastName.Text,
-                birthDate = BirthDate.SelectedDate?.ToString("dd.MM.yyyy") ?? "",
-                Address = Adress.Text,
-                email = EmailAdd.Text,
-                PhoneNumber = PhoneNum.Text,
-                Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
-                password = BCrypt.Net.BCrypt.EnhancedHashPassword(PassWord.Password)
-            };
-            
+                MessageBox.Show("Vyplňte všetky polia");
+                return;
+            }
 
-            if (BirthDate.SelectedDate < DateTime.Now )
-            {
-                 if(!Regex.IsMatch(PhoneNum.Text, "^[0-9]+$"))
+                var getData = new ExistingUserData
                 {
-                    MessageBox.Show("Zle zadané telefónne číslo");
+                    firstName = FirstName.Text,
+                    lastName = LastName.Text,
+                    birthDate = BirthDate.SelectedDate?.ToString("dd.MM.yyyy") ?? "",
+                    Address = Adress.Text,
+                    email = EmailAdd.Text,
+                    PhoneNumber = PhoneNum.Text,
+                    Gender = (GenderSelect.SelectedItem as ComboBoxItem).Content.ToString(),
+                    password = BCrypt.Net.BCrypt.EnhancedHashPassword(PassWord.Password)
+                };
+
+
+                if (BirthDate.SelectedDate < DateTime.Now)
+                {
+                    if (!Regex.IsMatch(PhoneNum.Text, "^[0-9]+$"))
+                    {
+                        MessageBox.Show("Zle zadané telefónne číslo");
+                    }
+
+                    else
+                    {
+
+                        string json = JsonSerializer.Serialize(getData);
+                        File.WriteAllText("userData.json", json);
+
+                        MainWindow LoginWindow = new MainWindow();
+                        MessageBox.Show("Registrácia úspešná");
+                        LoginWindow.WindowState = WindowState.Maximized;
+                        LoginWindow.Show();
+                        this.Close();
+
+                    }
                 }
 
                 else
                 {
-                 
-                 string json = JsonSerializer.Serialize(getData);
-                    File.WriteAllText("userData.json", json);
-
-                 MainWindow LoginWindow = new MainWindow();
-                 MessageBox.Show("Registrácia úspešná");
-                 LoginWindow.WindowState = WindowState.Maximized;
-                 LoginWindow.Show();
-                 this.Close();
-
+                    MessageBox.Show("Pre registráciu je potrebne zadat platny datum narodenia ");
                 }
-            }
-
-            else
-            {
-                MessageBox.Show("Pre registráciu je potrebne zadat platny datum narodenia ");
-            }
-
+            
            
 
 
