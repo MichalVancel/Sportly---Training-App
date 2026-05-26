@@ -26,8 +26,15 @@ namespace Sportly
             InitializeComponent();
         }
 
-        private void DeleteUser1_Click(object sender, RoutedEventArgs e)
+        private void DeleteUser_Click(object sender, RoutedEventArgs e)
         {
+
+            if (string.IsNullOrEmpty(email.Text) || string.IsNullOrEmpty(password.Password) || string.IsNullOrEmpty(firstName.Text) || string.IsNullOrEmpty(lastName.Text))
+            {
+                MessageBox.Show("Vyplňte všechny polia pre vzmayanie účtu");
+                return;
+            }
+
             string jsonfile = "userData.json";
             if(!File.Exists(jsonfile))
             {
@@ -59,11 +66,19 @@ namespace Sportly
             }
             
           
-               }
+        }
 
         private void email_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow LoginWindow = new MainWindow();
+            LoginWindow.WindowState = WindowState.Maximized;
+            LoginWindow.Show();
+            this.Close();
         }
     }
 }

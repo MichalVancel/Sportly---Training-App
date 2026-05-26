@@ -43,13 +43,19 @@ namespace Sportly
             string isEmailCorrect = emailTextBox.Text;
             string birthDateForReset = birthDatePicker.SelectedDate?.ToString("dd.MM.yyyy") ?? "";
             string newPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(newPasswordBox.Password);
-            
+
+            if (string.IsNullOrWhiteSpace(emailTextBox.Text) || string.IsNullOrWhiteSpace(newPasswordBox.Password) || birthDatePicker.SelectedDate == null)
+            {
+                MessageBox.Show("Vyplňte všetky polia pre zmenu hesla");
+                return;
+            }
+
             if(isEmailCorrect == userData.email &&  birthDateForReset == userData.birthDate)
             {
                 userData.password = newPassword;
                 string usersData = JsonSerializer.Serialize(userData);
                 File.WriteAllText(userFilePath, usersData);
-                MessageBox.Show("Heslo uspesne zresetovane, mozete ssa prihlasit znova");
+                MessageBox.Show("Heslo úspešne zmenené!");
                 MainWindow LoginWindow = new MainWindow();
                 LoginWindow.WindowState = WindowState.Maximized;
                 LoginWindow.Show();
@@ -57,7 +63,7 @@ namespace Sportly
             }
             else
             {
-                MessageBox.Show("Nespravne udaje zadane, nemozno resetovat heslo, skuste znova");
+                MessageBox.Show("Údaje sa nezhodujú!");
             }
         }
 

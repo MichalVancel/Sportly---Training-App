@@ -152,7 +152,7 @@ namespace Sportly.Dash
 
                 if (newUcast != oldUcast)
                 {
-                    // Update the number of participants
+                    // zmení sa počet účasníkov
                     if (newUcast == true)
                     {
                         clickedEvent.PocetUcastnikov++;
@@ -177,6 +177,7 @@ namespace Sportly.Dash
                 }
             }
         }
+// až do tialto
 
         private void UserInfoButton_Click(object sender, RoutedEventArgs e)
         {

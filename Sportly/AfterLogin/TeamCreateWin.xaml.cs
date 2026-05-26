@@ -32,6 +32,11 @@ namespace Sportly.AfterLogin
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(TeamName.Text) || Sport.SelectedItem == null || string.IsNullOrWhiteSpace(CityName.Text))
+            {
+                MessageBox.Show("Vyplňte všetky polia");
+                return;
+            }
             var teamData = new AboutTeam
             {
                 TeamName = TeamName.Text,

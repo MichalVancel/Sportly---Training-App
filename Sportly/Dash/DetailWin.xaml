@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sportly.Dash"
         mc:Ignorable="d"
-        Title="DetailWin" Height="450" Width="800">
-    <Grid>
-        
+        Title="DetailWin" Height="550" Width="900">
+    <Grid Background="#121212">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="DOCHÁDZKA" HorizontalAlignment="Center" Margin="0,49,0,0" Grid.Row="0" VerticalAlignment="Top" FontSize="40" FontFamily="Artifakt Element Heavy" Foreground="#B22222"/>
+
+        <Border Background="#B22222" Grid.Row="0" Width="60" HorizontalAlignment="Left" Margin="48,49,0,21" CornerRadius="30">
+            <Button Content="←" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="0" Height="60"  Width="60" FontSize="70" Padding="0,-25,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Transparent" Foreground="White" Click="BackButton_Click" BorderBrush ="Transparent"/>
+        </Border>
+
+        <Grid Grid.Row="1" Width="900" Height="455" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Border BorderThickness="1" Background="#1E1E1E" BorderBrush="#333333" CornerRadius="25" Margin="26,17,26,99"/>
+
+            <ListBox Margin="43,35,43,112" Background="Transparent" BorderBrush="Transparent" />
+
+        </Grid>
     </Grid>
 </Window>
