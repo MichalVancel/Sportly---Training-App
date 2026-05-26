@@ -36,8 +36,10 @@ namespace Sportly
             }
 
             string jsonfile = "userData.json";
-            string jsonApology = "Apologies.json"
-            if(!File.Exists(jsonfile))
+            string jsonApology = "Apologies.json";
+            string jsonEvent = "EventData.json";
+            string jsonTeam = "teamData.json";
+            if (!File.Exists(jsonfile))
             {
                 MessageBox.Show("Neexistuje žiadny účet");
                 
@@ -52,12 +54,16 @@ namespace Sportly
 
             {
                File.Delete(jsonfile);
-                MessageBox.Show("Účet bol úspešne zmazaný");
+               File.Delete(jsonApology);
+               File.Delete(jsonEvent);
+               File.Delete(jsonTeam);
 
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.WindowState = WindowState.Maximized;
-                mainWindow.Show();
-                this.Close();
+               MessageBox.Show("Účet bol úspešne zmazaný");
+
+               MainWindow mainWindow = new MainWindow();
+               mainWindow.WindowState = WindowState.Maximized;
+               mainWindow.Show();
+               this.Close();
 
             }
             else if (email.Text != savedUser.email && IsPassSame)

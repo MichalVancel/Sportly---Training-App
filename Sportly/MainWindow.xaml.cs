@@ -52,7 +52,7 @@ namespace Sportly
             }
             else
             {
-                File.WriteAllText(filePathUserData, "" );
+                File.WriteAllText(filePathUserData, "");
                 RegistrationWin registrationWin = new RegistrationWin();
                 registrationWin.WindowState = WindowState.Maximized;
                 registrationWin.Show();
@@ -63,10 +63,15 @@ namespace Sportly
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(Email.Text) || string.IsNullOrEmpty(PassWord.Password))
+            {
+                MessageBox.Show("Vyplňte všetky polia");
+                return;
+            }
 
             if (File.Exists(filePathUserData))
             {
-               
+
 
                 string Userdata = File.ReadAllText(filePathUserData);
                 ExistingUserData savedUser = JsonSerializer.Deserialize<ExistingUserData>(Userdata);
@@ -76,34 +81,34 @@ namespace Sportly
 
                 if (Email.Text == savedUser.email && IsPassSame)
                 {
-                    
-                    
-                    
-                    if(!File.Exists(teamDataPath))
-                    { 
 
-                            TeamCreateWin teamCreateWin = new TeamCreateWin();
-                            teamCreateWin.WindowState = WindowState.Maximized;
-                            teamCreateWin.Show();
-                            this.Close();
-                    }
-                    else 
-                     {
-                         DashBoard dashBoard = new DashBoard();
-                         dashBoard.WindowState = WindowState.Maximized;
-                         dashBoard.Show();
+
+                    if (!File.Exists(teamDataPath))
+                    {
+
+                        TeamCreateWin teamCreateWin = new TeamCreateWin();
+                        teamCreateWin.WindowState = WindowState.Maximized;
+                        teamCreateWin.Show();
                         this.Close();
-                     }
-                        
-                 }
+                    }
+                    else
+                    {
+                        DashBoard dashBoard = new DashBoard();
+                        dashBoard.WindowState = WindowState.Maximized;
+                        dashBoard.Show();
+                        this.Close();
+                    }
 
+                }
 
-                
-                else if (Email.Text != savedUser.email || !IsPassSame) 
+                else if (Email.Text != savedUser.email || !IsPassSame)
                 {
                     MessageBox.Show("Zle si napísal email alebo heslo.");
                 }
             }
+           
+           
+
 
         }
 
@@ -128,13 +133,13 @@ namespace Sportly
                 }
                 else if(json == "")
                 {
-                MessageBox.Show("Neexistuje pouzivatel, musis sa najprv zaregistrovat");
+                MessageBox.Show("Neexistuje žiadny účet");
                 }
 
             }
             else if (!File.Exists(filePathUserData))
             {
-                MessageBox.Show("Este nieje registrovany pouzivatel, musite registrovat pouzivatela");
+                MessageBox.Show("Ešte si není zaregistrovaný");
             }
 
             
@@ -144,6 +149,7 @@ namespace Sportly
 
         private void DeleteUser_Click(object sender, RoutedEventArgs e)
         {
+           
             if(File.Exists(filePathUserData))
             {
                 string userData = File.ReadAllText(filePathUserData);
@@ -154,6 +160,11 @@ namespace Sportly
                     deleteUser.Show();
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("Neexistuje žiadny účet");
+                }
+               
 
             }
         }
