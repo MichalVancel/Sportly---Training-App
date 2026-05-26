@@ -98,12 +98,14 @@ namespace Sportly
                  }
 
 
-                }
-                else
+                
+                else if (Email.Text != savedUser.email || !IsPassSame) 
                 {
                     MessageBox.Show("Zle si napísal email alebo heslo.");
                 }
             }
+
+        }
 
 
 

@@ -44,6 +44,8 @@ namespace Sportly.AfterLogin
                 City = CityName.Text
             };
 
+            
+            
             string json = JsonSerializer.Serialize(teamData);
             File.WriteAllText("teamData.json", json);
 

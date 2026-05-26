@@ -36,6 +36,7 @@ namespace Sportly
             }
 
             string jsonfile = "userData.json";
+            string jsonApology = "Apologies.json"
             if(!File.Exists(jsonfile))
             {
                 MessageBox.Show("Neexistuje žiadny účet");
