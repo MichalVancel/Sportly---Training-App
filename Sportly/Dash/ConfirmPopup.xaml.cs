@@ -5,9 +5,12 @@ namespace Sportly.Dash
 {
     public partial class ConfirmPopup : Window
     {
-        public ConfirmPopup()
+        public string EventInfo { get; set; }
+
+        public ConfirmPopup(string eventInfo = "")
         {
             InitializeComponent();
+            EventInfo = eventInfo;
         }
 
         private void YesButton_Click(object sender, RoutedEventArgs e)
@@ -20,7 +23,7 @@ namespace Sportly.Dash
         {
             this.DialogResult = false;
             this.Hide();
-            AppologyWin appologyWin = new AppologyWin();
+            AppologyWin appologyWin = new AppologyWin(EventInfo);
             
             appologyWin.ShowDialog();
             this.Close();

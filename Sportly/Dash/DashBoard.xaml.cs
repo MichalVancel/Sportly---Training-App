@@ -131,15 +131,17 @@ namespace Sportly.Dash
         {
 
         }
-// ai kod - robi ze novy event typu zapas a pod sa prida do dashboardu automaticky a otevre
+// ai kod - robi ze novy event tipu zapas a pod sa prida do dashboardu automaticky a otevre
         private void AttendanceToggleButton_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (sender is System.Windows.Controls.Primitives.ToggleButton toggleButton && toggleButton.DataContext is Event clickedEvent)
             {
                 // Zastavíme predvolené správanie kliknutia
                 e.Handled = true; 
+                
+                string eventInfo = clickedEvent.EvenInfo;
 
-                ConfirmPopup popup = new ConfirmPopup();
+                ConfirmPopup popup = new ConfirmPopup(eventInfo);
                 popup.Owner = this;
 
                 bool? result = popup.ShowDialog();
@@ -212,9 +214,13 @@ namespace Sportly.Dash
 
         private void EventDetails_DoubleClick(object sender, RoutedEventArgs e)
         {
-                DetailWin detail = new DetailWin();              
+            if (Events.SelectedItem is Event selectedEvent)
+            {
+                DetailWin detail = new DetailWin(selectedEvent);              
                 detail.WindowState = WindowState.Maximized;             
-                detail.ShowDialog();
+                detail.Show();
+                this.Close();
+            }
         }
     }
 }
