@@ -45,12 +45,11 @@ namespace Sportly.Dash
 
             string path = "EventData.json";
             List<DashBoard.Event> events = new List<DashBoard.Event>();
-            if (!Regex.IsMatch(TimeTo.Text, "^[0-9]+$") || !Regex.IsMatch(TimeFrom.Text, "^[0-9]+$"))
+            string timePattern = @"^(0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$";
+
+            if (!Regex.IsMatch(TimeTo.Text, timePattern) || !Regex.IsMatch(TimeFrom.Text, timePattern))
             {
-                MessageBox.Show("Zle zadaný čas");
-
-
-               
+                MessageBox.Show("Zle zadaný čas. Zadajte formát od 00:00 do 23:59.");
             }
             else
             {
